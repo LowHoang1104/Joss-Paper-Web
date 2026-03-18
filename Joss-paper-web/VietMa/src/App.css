@@ -1883,55 +1883,8 @@ button {
   object-fit: cover;
 }
 
-.chat-advisor-fab.open {
+.chat-advisor-fab[aria-label='Đóng tư vấn viên Việt Mã'] {
   transform: scale(0.95);
-}
-
-.chat-advisor-actions {
-  position: fixed;
-  right: 20px;
-  bottom: 102px;
-  z-index: 258;
-  display: grid;
-  gap: 10px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(8px) scale(0.92);
-  transform-origin: bottom right;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.chat-advisor-actions.open {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0) scale(1);
-}
-
-.chat-contact-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 142px;
-  padding: 6px 10px 6px 6px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(28, 13, 8, 0.92);
-  box-shadow: 0 14px 28px rgba(9, 3, 2, 0.35);
-}
-
-.chat-contact-badge {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.chat-contact-label {
-  color: var(--cream);
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .chat-advisor {
@@ -2151,11 +2104,6 @@ button {
     width: 72px;
     height: 72px;
   }
-
-  .chat-advisor-actions {
-    right: 10px;
-    bottom: 92px;
-  }
 }
 
 @media (max-width: 900px) {
@@ -2372,25 +2320,5 @@ button {
     bottom: 8px;
     width: 68px;
     height: 68px;
-  }
-
-  .chat-advisor-actions {
-    right: 8px;
-    bottom: 86px;
-    gap: 8px;
-  }
-
-  .chat-contact-item {
-    min-width: 128px;
-    padding: 5px 9px 5px 5px;
-  }
-
-  .chat-contact-badge {
-    width: 28px;
-    height: 28px;
-  }
-
-  .chat-contact-label {
-    font-size: 0.75rem;
   }
 }

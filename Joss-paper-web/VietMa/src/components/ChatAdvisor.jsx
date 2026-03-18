@@ -1,63 +1,122 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
+import { advisorBootstrap, advisorSystemPrompt, generateAdvisorReply } from '../data/chatAdvisor.js'
 import advisorMascot from '../assets/Screenshot 2026-03-26 005530.png'
-import zaloLogo from '../assets/zalo-logo.svg'
-import messengerLogo from '../assets/messenger-logo.svg'
-import tiktokLogo from '../assets/tiktok-logo.svg'
 
 function ChatAdvisor() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isTyping, setIsTyping] = useState(false)
+  const [input, setInput] = useState('')
+  const [messages, setMessages] = useState([
+    {
+      id: 'bot-welcome',
+      role: 'bot',
+      text: advisorBootstrap.welcome,
+    },
+  ])
 
-  const quickContacts = [
-    {
-      id: 'zalo',
-      label: 'Zalo',
-      href: 'https://zalo.me/0901234567',
-      logo: zaloLogo,
-      className: 'chat-contact-zalo',
-    },
-    {
-      id: 'messenger',
-      label: 'Messenger',
-      href: 'https://m.me/vietma.vn',
-      logo: messengerLogo,
-      className: 'chat-contact-messenger',
-    },
-    {
-      id: 'tiktok',
-      label: 'TikTok',
-      href: 'https://www.tiktok.com/@vietma.vn',
-      logo: tiktokLogo,
-      className: 'chat-contact-tiktok',
-    },
-  ]
+  const quickReplies = useMemo(() => advisorBootstrap.quickReplies, [])
+
+  const sendMessage = (rawText) => {
+    const text = rawText.trim()
+    if (!text) return
+
+    const userMessage = {
+      id: `user-${Date.now()}`,
+      role: 'user',
+      text,
+    }
+
+    setMessages((prev) => [...prev, userMessage])
+    setInput('')
+    setIsTyping(true)
+
+    window.setTimeout(() => {
+      const answer = generateAdvisorReply(text)
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `bot-${Date.now()}`,
+          role: 'bot',
+          text: answer,
+        },
+      ])
+      setIsTyping(false)
+    }, 450)
+  }
+
+  
+  const onSubmit = (event) => {
+    event.preventDefault()
+    sendMessage(input)
+  }
 
   return (
-    <div className="chat-advisor-wrap">
-      <div className={`chat-advisor-actions ${isOpen ? 'open' : ''}`} aria-hidden={!isOpen}>
-        {quickContacts.map((item) => (
-          <a
-            key={item.id}
-            className={`chat-contact-item ${item.className}`}
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Liên hệ qua ${item.label}`}
-          >
-            <img src={item.logo} alt="" className="chat-contact-badge" aria-hidden="true" />
-            <span className="chat-contact-label">{item.label}</span>
-          </a>
-        ))}
-      </div>
+    <>
+      {!isOpen ? (
+        <button
+          type="button"
+          className="chat-advisor-fab"
+          onClick={() => setIsOpen(true)}
+          aria-label="Mở tư vấn viên Việt Mã"
+        >
+          <img src={advisorMascot} alt="" className="chat-advisor-fab-avatar" />
+        </button>
+      ) : null}
 
-      <button
-        type="button"
-        className={`chat-advisor-fab ${isOpen ? 'open' : ''}`}
-        onClick={() => setIsOpen((prev) => !prev)}
-        aria-label={isOpen ? 'Đóng menu liên hệ nhanh' : 'Mở menu liên hệ nhanh'}
-      >
-        <img src={advisorMascot} alt="" className="chat-advisor-fab-avatar" />
-      </button>
-    </div>
+      {isOpen ? (
+        <section className="chat-advisor" aria-label="Tư vấn viên Việt Mã">
+          <header className="chat-advisor-header">
+            <div>
+              <p className="chat-advisor-title">Tư vấn viên Việt Mã</p>
+              <p className="chat-advisor-subtitle">Theo prompt thương hiệu, hỗ trợ 24/7</p>
+            </div>
+            <button
+              type="button"
+              className="chat-advisor-close"
+              onClick={() => setIsOpen(false)}
+              aria-label="Đóng cửa sổ chat"
+            >
+              ×
+            </button>
+          </header>
+
+          <div className="chat-advisor-messages">
+            {messages.map((message) => (
+              <article
+                key={message.id}
+                className={`chat-bubble chat-bubble-${message.role}`}
+              >
+                {message.text}
+              </article>
+            ))}
+            {isTyping ? <p className="chat-typing">Tư vấn viên đang soạn...</p> : null}
+          </div>
+
+          <div className="chat-quick-replies">
+            {quickReplies.map((item) => (
+              <button
+                key={item}
+                type="button"
+                className="chat-chip"
+                onClick={() => sendMessage(item)}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+
+          <form className="chat-advisor-form" onSubmit={onSubmit}>
+            <input
+              type="text"
+              value={input}
+              onChange={(event) => setInput(event.target.value)}
+              placeholder="Nhập nhu cầu của bạn..."
+            />
+            <button type="submit">Gửi</button>
+          </form>
+        </section>
+      ) : null}
+    </>
   )
 }
 
