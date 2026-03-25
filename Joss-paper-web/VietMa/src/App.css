@@ -249,6 +249,25 @@ button {
   gap: 36px;
 }
 
+.nav-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 88px;
+  padding: 10px 14px;
+  border: 1px solid rgba(201, 151, 43, 0.45);
+  background: rgba(28, 13, 8, 0.76);
+  color: var(--gold-light);
+  font-family: 'Crimson Text', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nav-link-mobile-cta {
+  display: none;
+}
+
 .nav-link {
   color: var(--blush);
   font-size: 0.95rem;
@@ -1881,10 +1900,51 @@ button {
 
 @media (max-width: 900px) {
   .site-nav {
+    position: fixed;
     padding: 16px 24px;
+    gap: 14px;
   }
 
   .nav-links {
+    display: none;
+  }
+
+  .nav-menu-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .nav-links.open {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 24px;
+    right: 24px;
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    border: 1px solid rgba(201, 151, 43, 0.3);
+    background: rgba(28, 13, 8, 0.96);
+    box-shadow: 0 22px 44px rgba(8, 2, 1, 0.42);
+    backdrop-filter: blur(6px);
+  }
+
+  .nav-links.open .nav-link {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(201, 151, 43, 0.18);
+  }
+
+  .nav-links.open .nav-link:last-child {
+    border-bottom: 0;
+  }
+
+  .nav-links.open .nav-link-mobile-cta {
+    display: block;
+    color: var(--gold-light);
+  }
+
+  .nav-cta-desktop {
     display: none;
   }
 
@@ -1919,6 +1979,12 @@ button {
   .hero-editorial,
   .quote-ribbon {
     grid-template-columns: 1fr;
+  }
+
+  .hero-editorial {
+    width: min(1180px, calc(100% - 32px));
+    gap: 28px;
+    padding: 36px 0 92px;
   }
 
   .hero-actions,
@@ -1959,12 +2025,48 @@ button {
   }
 
   .site-nav {
-    flex-wrap: wrap;
+    padding: 14px 16px;
+  }
+
+  .nav-logo {
+    font-size: 1.25rem;
+    letter-spacing: 0.06em;
+  }
+
+  .nav-logo-image {
+    width: 34px;
+    height: 34px;
+  }
+
+  .nav-menu-toggle {
+    min-width: 80px;
+    padding: 9px 12px;
+    font-size: 0.72rem;
+  }
+
+  .nav-links.open {
+    left: 16px;
+    right: 16px;
+    top: calc(100% + 8px);
+  }
+
+  .hero-sub,
+  .page-hero-copy {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost,
+  .section-actions .btn-primary {
+    width: 100%;
     justify-content: center;
   }
 
-  .nav-cta {
-    width: 100%;
+  .btn-primary,
+  .btn-ghost {
+    padding: 13px 20px;
+    font-size: 0.98rem;
   }
 
   .scroll-cue {

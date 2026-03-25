@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
-import { NavLink, Outlet, ScrollRestoration } from 'react-router-dom'
+import { NavLink, Outlet, ScrollRestoration, useLocation } from 'react-router-dom'
 import brandLogo from '../assets/Logo.png'
 import { footerGroups, navLinks } from '../data/siteData.js'
 
 function Layout() {
   const [scrolled, setScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +19,18 @@ function Layout() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false)
+  }, [location.pathname])
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev)
+  }
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+  }
+
   return (
     <div className="site-shell">
       <header className={`site-nav ${scrolled ? 'scrolled' : ''}`}>
@@ -25,11 +39,22 @@ function Layout() {
           <span>Việt Mã</span>
         </NavLink>
 
-        <nav className="nav-links" aria-label="Điều hướng chính">
+        <button
+          type="button"
+          className="nav-menu-toggle"
+          aria-label="Mở menu điều hướng"
+          aria-expanded={isMobileMenuOpen}
+          onClick={toggleMobileMenu}
+        >
+          {isMobileMenuOpen ? 'Đóng' : 'Menu'}
+        </button>
+
+        <nav className={`nav-links ${isMobileMenuOpen ? 'open' : ''}`} aria-label="Điều hướng chính">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
+              onClick={closeMobileMenu}
               className={({ isActive }) =>
                 `nav-link ${isActive ? 'active' : ''}`.trim()
               }
@@ -37,9 +62,13 @@ function Layout() {
               {link.label}
             </NavLink>
           ))}
+
+          <NavLink to="/contact" className="nav-link nav-link-mobile-cta" onClick={closeMobileMenu}>
+            Tư Vấn Ngay
+          </NavLink>
         </nav>
 
-        <NavLink to="/contact" className="nav-cta">
+        <NavLink to="/contact" className="nav-cta nav-cta-desktop">
           Tư Vấn Ngay
         </NavLink>
       </header>
