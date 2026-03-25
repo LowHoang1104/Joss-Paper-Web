@@ -1853,27 +1853,85 @@ button {
 
 .chat-advisor-fab {
   position: fixed;
-  right: 22px;
-  bottom: 20px;
+  right: 20px;
+  bottom: 16px;
   z-index: 260;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 16px;
-  border: 1px solid rgba(232, 199, 106, 0.55);
-  border-radius: 999px;
-  background: linear-gradient(145deg, rgba(143, 45, 33, 0.96), rgba(110, 31, 21, 0.95));
-  color: var(--gold-light);
-  font-family: 'Crimson Text', serif;
-  font-size: 0.84rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  box-shadow: 0 18px 36px rgba(12, 4, 3, 0.34);
+  width: 76px;
+  height: 76px;
+  padding: 0;
+  border: 2px solid rgba(232, 199, 106, 0.75);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 241, 202, 0.45), rgba(110, 31, 21, 0.92));
+  box-shadow:
+    0 18px 36px rgba(12, 4, 3, 0.34),
+    0 0 0 4px rgba(143, 45, 33, 0.22);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .chat-advisor-fab:hover {
-  background: linear-gradient(145deg, rgba(201, 151, 43, 0.96), rgba(143, 45, 33, 0.95));
+  transform: translateY(-2px) scale(1.03);
+  box-shadow:
+    0 22px 40px rgba(12, 4, 3, 0.4),
+    0 0 0 5px rgba(201, 151, 43, 0.28);
+}
+
+.chat-advisor-fab-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chat-advisor-fab.open {
+  transform: scale(0.95);
+}
+
+.chat-advisor-actions {
+  position: fixed;
+  right: 20px;
+  bottom: 102px;
+  z-index: 258;
+  display: grid;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px) scale(0.92);
+  transform-origin: bottom right;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.chat-advisor-actions.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.chat-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 142px;
+  padding: 6px 10px 6px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(28, 13, 8, 0.92);
+  box-shadow: 0 14px 28px rgba(9, 3, 2, 0.35);
+}
+
+.chat-contact-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chat-contact-label {
   color: var(--cream);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .chat-advisor {
@@ -2089,7 +2147,14 @@ button {
 
   .chat-advisor-fab {
     right: 10px;
-    bottom: 12px;
+    bottom: 10px;
+    width: 72px;
+    height: 72px;
+  }
+
+  .chat-advisor-actions {
+    right: 10px;
+    bottom: 92px;
   }
 }
 
@@ -2304,8 +2369,28 @@ button {
 
   .chat-advisor-fab {
     right: 8px;
-    bottom: 10px;
-    padding: 11px 13px;
-    font-size: 0.76rem;
+    bottom: 8px;
+    width: 68px;
+    height: 68px;
+  }
+
+  .chat-advisor-actions {
+    right: 8px;
+    bottom: 86px;
+    gap: 8px;
+  }
+
+  .chat-contact-item {
+    min-width: 128px;
+    padding: 5px 9px 5px 5px;
+  }
+
+  .chat-contact-badge {
+    width: 28px;
+    height: 28px;
+  }
+
+  .chat-contact-label {
+    font-size: 0.75rem;
   }
 }
