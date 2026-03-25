@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet, ScrollRestoration, useLocation } from 'react-router-dom'
 import brandLogo from '../assets/Logo.png'
+import ChatAdvisor from './ChatAdvisor.jsx'
 import { footerGroups, navLinks } from '../data/siteData.js'
 
 function Layout() {
@@ -131,6 +132,8 @@ function Layout() {
           </div>
         </div>
       </footer>
+
+      <ChatAdvisor />
 
       <ScrollRestoration />
     </div>
