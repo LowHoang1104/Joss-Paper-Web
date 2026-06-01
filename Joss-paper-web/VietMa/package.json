@@ -10,7 +10,7 @@
     "build:gh": "vite build --base=/Joss-Paper-Web/",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build:gh",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {

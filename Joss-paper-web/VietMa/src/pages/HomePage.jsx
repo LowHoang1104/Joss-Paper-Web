@@ -82,17 +82,17 @@ function HomePage() {
 
         <div className="hero-inner hero-editorial">
           <div className="hero-main">
-            <p className="hero-eyebrow">Kính thiên - Lễ tổ - Tâm thành</p>
+            <p className="hero-eyebrow">Việt Mã</p>
             <h1 className="hero-title">
-              Tâm Thành
+              Việt Mã
               <br />
-              <em>Lễ Vật</em>
-              <span className="hanzi-title">Tâm Thành Tỏa Sáng</span>
+              <em>Giữ trọn lòng thành</em>
+              <span className="hanzi-title">Sự an tâm trong nghi lễ hiện đại</span>
             </h1>
             <p className="hero-sub">
-              Mỗi lễ vật được chọn lọc kỳ công, gửi gắm lòng thành kính đến đấng sinh
-              thành và tổ tiên, nhưng trình bày theo ngôn ngữ thị giác đậm chất xưởng
-              nghề hơn thay vì một landing page quá gọn gàng.
+              Việt Mã là giải pháp giúp người Việt duy trì nghi lễ
+              truyền thống theo cách phù hợp với cuộc sống đô thị: gọn gàng, an toàn và
+              vẫn giữ trọn giá trị tâm linh.
             </p>
             <div className="hero-actions hero-actions-left">
               <Link to="/products" className="btn-primary">
@@ -106,15 +106,15 @@ function HomePage() {
 
           <Reveal className="hero-side" delay={0.25}>
             <div className="ritual-note">
-              <div className="ritual-note-kicker">Từ xưởng Đông Hồ</div>
-              <h2 className="ritual-note-title">Không bán sự phô trương, chỉ giữ đúng khí chất lễ.</h2>
+              <div className="ritual-note-kicker">Giải pháp ritual cho đô thị</div>
+              <h2 className="ritual-note-title">Chúng tôi bán sự an tâm, không chỉ bán vàng mã.</h2>
               <p className="ritual-note-copy">
-                Giấy dó, mực in, sắc đỏ son và nhịp điệu khói hương được xử lý như chất liệu
-                thị giác chính để giao diện bớt cảm giác dựng theo công thức.
+                Việt Mã thiết kế sản phẩm và trải nghiệm để bạn thực hành nghi lễ đầy đủ
+                và an tâm trong không gian nhỏ: ít khói, an toàn và thẩm mỹ.
               </p>
               <div className="ritual-note-meta">
-                <span>Nhóm khởi nghiệp 2026</span>
-                <span>Tập trung dòng mini</span>
+                <span>Combo chuẩn nghi lễ</span>
+                <span>Hướng dẫn & tư vấn</span>
               </div>
             </div>
           </Reveal>
@@ -143,10 +143,7 @@ function HomePage() {
               <h2 className="section-title">
                 Danh Mục <em>Nổi Bật</em>
               </h2>
-              <p className="section-copy section-copy-left">
-                Trang chủ không còn dàn mọi thứ đều nhau. Tôi đẩy nó về hướng giống một
-                trang giới thiệu thương hiệu thủ công, nơi từng block có trọng lượng thị giác riêng.
-              </p>
+              
               <div className="ornament ornament-left">
                 <div className="ornament-line" />
                 <span className="ornament-sym">✦</span>
@@ -154,13 +151,7 @@ function HomePage() {
               </div>
             </Reveal>
 
-            <Reveal className="section-marginalia" delay={0.12}>
-              <span className="section-marginalia-label">Ghi chú xưởng</span>
-              <p>
-                Sản phẩm chính được đặt như một “tấm áp phích” lớn, còn hai món còn lại đóng vai
-                trò vệ tinh để giao diện có nhịp lên xuống thay vì lưới 3 cột quá quen tay.
-              </p>
-            </Reveal>
+    
           </div>
 
           <div className="products-grid products-grid-featured">
@@ -251,8 +242,36 @@ function HomePage() {
           <Reveal>
             <div className="about-panel">
               <div className="about-frame">
-                <div className="about-frame-symbol">Vàng Mã Mini</div>
                 <div className="about-frame-glow" />
+              </div>
+              <div className="about-vision">
+                <div className="vision-hero">
+                  <p className="vision-quote">
+                    Trở thành thương hiệu Spiritual Lifestyle — giúp thế hệ
+                    hiện đại duy trì kết nối văn hóa và tín ngưỡng theo cách văn minh, tinh tế
+                    và bền vững.
+                  </p>
+                </div>
+
+                <div className="mission-hero">
+                  <p className="mission-line">
+                    <strong>
+                      Giúp người Việt thực hành nghi lễ truyền thống dễ dàng, thuận tiện và an
+                      tâm hơn thông qua sản phẩm và trải nghiệm tâm linh hiện đại.
+                    </strong>
+                  </p>
+                </div>
+
+                <div className="values-tiles">
+                  <ul className="core-values-list">
+                    <li>Tôn trọng tín ngưỡng Việt</li>
+                    <li>Thích nghi với đời sống hiện đại</li>
+                    <li>Mang lại sự an tâm</li>
+                    <li>Đơn giản — Gọn gàng — An toàn</li>
+                    <li>Kết nối gia đình và giá trị tinh thần</li>
+                    <li>Hướng tới trải nghiệm tâm linh văn minh</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </Reveal>
@@ -260,19 +279,38 @@ function HomePage() {
           <Reveal className="about-content" delay={0.15}>
             <span className="section-tag">✦ Câu Chuyện Thương Hiệu ✦</span>
             <h2 className="section-title">
-              Giữ Nghề Tổ,
+              Giữ truyền thống,
               <br />
-              <em>Nhưng Điều Hướng Rõ Ràng Hơn</em>
+              <em>Thiết kế cho đời sống hiện đại</em>
             </h2>
             <p className="about-lead">
-              "Một nén nhang thơm, một tờ vàng mã là cầu nối giữa hai thế giới; còn
-              một website nhiều trang là cầu nối rõ ràng hơn giữa nội dung và người xem."
+              Việt Mã ra đời để giữ trọn lòng thành trong nghi lễ — nhưng thực hành theo
+              cách phù hợp với không gian đô thị: an toàn, tinh tế và thuận tiện.
             </p>
             <p className="about-body">
-              Tôi đã tách phần giới thiệu, sản phẩm, bài viết và liên hệ thành các route
-              riêng để thay cho kiểu cuộn một trang và nhảy bằng anchor. Điều đó giúp mở
-              rộng nội dung sau này dễ hơn, đồng thời điều hướng cũng tự nhiên hơn trên di động.
+              Chúng tôi tin rằng lòng thành không nằm ở số lượng vật lễ, mà nằm ở sự chỉn
+              chu và thành tâm. Vì vậy Việt Mã cung cấp combo chuẩn nghi lễ, hướng dẫn rõ
+              ràng và dịch vụ tư vấn để bạn an tâm thực hành nghi lễ dù sống trong căn hộ nhỏ.
             </p>
+            <div className="about-side-extras">
+              <div className="about-highlights">
+                <h4>Điểm nổi bật</h4>
+                <ul>
+                  <li>An toàn & ít khói — phù hợp chung cư</li>
+                  <li>Combo chuẩn nghi lễ kèm hướng dẫn</li>
+                  <li>Thiết kế tinh tế, đóng gói an toàn</li>
+                </ul>
+              </div>
+
+              <div className="about-ctas">
+                <Link to="/products" className="btn-primary">
+                  Xem Bộ Sưu Tập
+                </Link>
+                <Link to="/contact" className="btn-ghost">
+                  Nhờ Tư Vấn Nghi Lễ
+                </Link>
+              </div>
+            </div>
             <div className="about-pillars">
               {pillars.map((pillar) => (
                 <div key={pillar.title} className="pillar">
@@ -344,6 +382,8 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      
     </div>
   )
 }

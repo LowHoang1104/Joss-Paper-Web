@@ -331,6 +331,97 @@ button {
   padding: 100px 0;
 }
 
+/* HomeIntro compact styles to blend with hero and page rhythm */
+.intro-section {
+  padding: 48px 0;
+  background: transparent;
+}
+.intro-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.intro-hero {
+  max-width: 920px;
+}
+.intro-title {
+  margin: 0 0 8px 0;
+  color: var(--crimson-strong);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+  line-height: 1.05;
+}
+.intro-tagline {
+  margin: 0 0 18px 0;
+  color: var(--taupe);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.intro-ctas {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px;
+}
+.intro-features {
+  display: flex;
+  gap: 28px;
+  align-items: start;
+  flex-wrap: wrap;
+}
+.intro-features .feature {
+  flex: 1 1 240px;
+}
+.intro-features h3 {
+  margin: 0 0 8px 0;
+  color: var(--crimson);
+  font-size: 1.05rem;
+}
+.intro-about {
+  color: var(--taupe);
+  max-width: 920px;
+}
+.intro-products ul {
+  margin: 8px 0 0 20px;
+  color: var(--taupe);
+}
+
+/* Compact homepage: hide decorative layers and reduce sections */
+.compact-home .embers,
+.compact-home .hero-particle-field,
+.compact-home .hero-caption-band,
+.compact-home .scroll-cue,
+.compact-home .hero-seal {
+  display: none !important;
+}
+
+.compact-home .hero {
+  min-height: calc(60vh - var(--nav-height));
+  background: linear-gradient(180deg, rgba(28,13,8,0.9) 0%, rgba(40,16,10,0.75) 60%);
+}
+
+.compact-home .hero-editorial {
+  grid-template-columns: 1fr;
+  padding: 28px 18px 64px;
+}
+
+.compact-home .hero-side {
+  display: none;
+}
+
+.compact-home .section {
+  padding: 64px 0;
+}
+
+.compact-home .blog-section,
+.compact-home .quote-ribbon-section {
+  display: none;
+}
+
+.compact-home .products-section .products-grid {
+  gap: 22px;
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 56px;
@@ -1343,11 +1434,117 @@ button {
 .about-panel {
   position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
-  padding: 0;
-  border: none;
-  background: transparent;
+  padding: 24px;
+  border: 1px solid rgba(232, 199, 106, 0.12);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(29,12,8,0.6));
+  box-shadow: 0 26px 60px rgba(0,0,0,0.28);
+  min-height: 360px;
+}
+
+.about-vision {
+  max-width: 360px;
+  padding: 20px 18px;
+  color: var(--cream);
+}
+
+.vision-hero,
+.mission-hero,
+.values-tiles {
+  padding: 14px 16px;
+  border-left: 2px solid rgba(201, 151, 43, 0.55);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.mission-hero,
+.values-tiles {
+  margin-top: 14px;
+}
+
+.vision-quote {
+  margin: 0;
+  color: rgba(255, 247, 230, 0.94);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.mission-line {
+  margin: 0;
+  color: rgba(232, 222, 204, 0.9);
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+
+.core-values-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(232, 222, 204, 0.9);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.about-vision h3 {
+  margin: 0 0 8px 0;
+  color: var(--gold-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.about-vision p {
+  margin: 8px 0 0 0;
+  color: rgba(255, 247, 230, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.about-vision h4 {
+  margin-top: 12px;
+  color: var(--sage);
+  font-size: 0.9rem;
+}
+
+.about-vision ol {
+  margin: 8px 0 0 18px;
+  color: var(--taupe);
+}
+
+.about-vision li {
+  margin-bottom: 6px;
+}
+
+.about-side-extras {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-highlights {
+  padding: 18px;
+  border: 1px solid rgba(190,166,161,0.08);
+  background: rgba(255,255,255,0.02);
+}
+
+.about-highlights h4 {
+  margin: 0 0 8px 0;
+  color: var(--gold-light);
+}
+
+.about-highlights ul {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(232,222,204,0.9);
+}
+
+.about-ctas {
+  display: flex;
+  gap: 12px;
 }
 
 .dong-son-drum {
