@@ -1,5 +1,5 @@
 import Reveal from '../components/Reveal.jsx'
-import { pillars, rituals, timeline } from '../data/siteData.js'
+import { rituals } from '../data/siteData.js'
 import dongSonDrumImage from '../assets/( Anhpng.com ) - TRỐNG ĐỒNG 06 (Custom).webp'
 
 function AboutPage() {
@@ -9,12 +9,13 @@ function AboutPage() {
         <div className="container page-hero-content">
           <span className="section-tag">✦ Về chúng tôi ✦</span>
           <h1 className="page-hero-title">
-            Hồn Việt Trong Từng <em>Nếp Giấy</em>
+            Việt Mã
+            <br />
+            <em>Giữa truyền thống và đời sống hiện đại</em>
           </h1>
           <p className="page-hero-copy">
-            Việt Mã sinh ra từ nhịp sống làng nghề Bắc Bộ, lớn lên cùng mùi giấy dó, mực in
-            và nếp cúng gia tiên của người Việt. Chúng tôi làm vàng mã bằng sự chỉn chu của
-            nghề thủ công, và bằng lòng kính trọng dành cho mỗi mâm lễ trong từng mái nhà.
+            Một thương hiệu spiritual lifestyle giúp người Việt duy trì nghi lễ truyền thống theo
+            cách phù hợp hơn với nhịp sống đô thị: tinh tế, an toàn và vẫn giữ trọn giá trị tinh thần.
           </p>
         </div>
       </section>
@@ -34,67 +35,96 @@ function AboutPage() {
                 <span className="drum-ring drum-ring-3" aria-hidden="true" />
                 <span className="drum-ring drum-ring-4" aria-hidden="true" />
               </div>
+              <div className="about-frame">
+                <div className="about-frame-glow" />
+              </div>
             </div>
           </Reveal>
 
           <Reveal className="about-content" delay={0.12}>
-            <span className="section-tag">✦ Di sản ✦</span>
+            <span className="section-tag">✦ Thương hiệu ✦</span>
             <h2 className="section-title">
-              Giữ Nét Làng,
+              Tên Thương Hiệu
               <br />
-              <em>Giữ Nếp Nhà</em>
+              <em>Việt Mã</em>
             </h2>
-            <p className="about-lead">
-              "Giấy là vật, lễ là tâm. Tâm còn, nếp Việt còn."
-            </p>
-            <p className="about-body">
-              Việt Mã là nhóm khởi nghiệp vàng mã mini lấy cảm hứng từ biểu tượng trống đồng Đông Sơn
-              và tinh thần nghề thủ công Việt.
-              Chúng tôi học từ tinh thần chỉn chu của thợ thủ công để tạo ra các mẫu nhỏ gọn, dễ bày lễ
-              mà vẫn giữ được nét trang trọng và lòng thành kính.
-            </p>
-            <p className="about-body">
-              Dù ở Bắc, Trung hay Nam, mỗi vùng có cách bày lễ khác nhau. Chúng tôi tư vấn theo
-              phong tục từng miền để mâm cúng vẫn gọn gàng, đúng nếp và đúng lòng thành của gia chủ.
-            </p>
-            <div className="about-region-list">
-              <span>Bắc Bộ: nền nếp, tinh tế, trọng lễ gia tiên</span>
-              <span>Trung Bộ: trang nghiêm, tiết chế, coi trọng gia phong</span>
-              <span>Nam Bộ: ấm cúng, tròn đầy, chuộng tình gắn kết</span>
-            </div>
-            <div className="about-pillars">
-              {pillars.map((pillar) => (
-                <div key={pillar.title} className="pillar">
-                  <div className="pillar-title">{pillar.title}</div>
-                  <p className="pillar-text">{pillar.text}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
 
-      <section className="section about-section">
-        <div className="container">
-          <Reveal className="section-header about-content">
-            <span className="section-tag">✦ Hành trình ✦</span>
-            <h2 className="section-title">
-              Những Cột Mốc <em>Đáng Nhớ</em>
-            </h2>
+            <div className="about-story-stack">
+              <article className="about-story-block">
+                <div className="story-block-label">Tên thương hiệu</div>
+                <p className="story-block-copy">
+                  <strong>Việt</strong> đại diện cho văn hóa, truyền thống và bản sắc người Việt.
+                  <br />
+                  <strong>Mã</strong> là biểu tượng của vàng mã, tín ngưỡng tâm linh và sự kết nối
+                  giữa người sống với tổ tiên.
+                </p>
+                <p className="story-block-copy story-block-emphasis">
+                  Việt Mã không chỉ đại diện cho sản phẩm vàng mã. Thương hiệu được định vị như
+                  một giải pháp tâm linh hiện đại, giúp người Việt duy trì nghi lễ truyền thống theo
+                  cách phù hợp hơn với cuộc sống đô thị ngày nay.
+                </p>
+              </article>
+
+              <article className="about-story-block">
+                <div className="story-block-label">Brand story</div>
+                <p className="story-block-copy">
+                  Trong nhiều thế hệ, đốt vàng mã là một phần trong đời sống tín ngưỡng của người Việt.
+                  Đó không chỉ là một nghi thức, mà là sự tưởng nhớ, lòng hiếu kính, cảm giác kết nối với
+                  tổ tiên và niềm tin về sự bình an, đủ đầy.
+                </p>
+                <p className="story-block-copy">
+                  Nhưng cuộc sống hiện đại đang thay đổi cách con người sinh hoạt: căn hộ nhỏ hơn,
+                  quy định an toàn nghiêm ngặt hơn, con người bận rộn hơn và không gian sống đô thị
+                  ngày càng hạn chế.
+                </p>
+                <p className="story-block-copy">
+                  Người Việt không muốn từ bỏ tín ngưỡng. Họ chỉ không còn phù hợp với cách thực hành cũ.
+                  Việt Mã ra đời để giải quyết khoảng cách đó: không thay đổi giá trị truyền thống, mà tái
+                  thiết kế trải nghiệm nghi lễ gọn hơn, an toàn hơn, tinh tế hơn, nhưng vẫn giữ trọn giá trị
+                  tinh thần.
+                </p>
+                <p className="story-block-copy story-block-emphasis">
+                  Việt Mã tin rằng: lộc không nằm ở số lượng vàng mã được đốt, mà nằm ở sự chỉn chu,
+                  thành tâm và cảm giác đủ đầy trong nghi lễ.
+                </p>
+              </article>
+
+              <article className="about-story-block">
+                <div className="story-block-label">Vision</div>
+                <p className="story-block-copy story-block-emphasis">
+                  Trở thành thương hiệu tiên phong trong lĩnh vực spiritual lifestyle tại Việt Nam, giúp
+                  thế hệ hiện đại duy trì kết nối văn hóa và tín ngưỡng theo cách văn minh, tinh tế và
+                  bền vững hơn.
+                </p>
+              </article>
+
+              <article className="about-story-block">
+                <div className="story-block-label">Mission</div>
+                <p className="story-block-copy">Giúp người Việt:</p>
+                <ul className="story-block-list">
+                  <li>duy trì nghi lễ truyền thống</li>
+                  <li>cảm thấy an tâm khi thực hành tín ngưỡng</li>
+                  <li>cân bằng giữa đời sống hiện đại và giá trị văn hóa</li>
+                </ul>
+                <p className="story-block-copy">
+                  Thông qua sản phẩm ritual hiện đại, trải nghiệm tâm linh tinh gọn và giải pháp phù hợp
+                  không gian sống đô thị.
+                </p>
+              </article>
+
+              <article className="about-story-block">
+                <div className="story-block-label">Core Values</div>
+                <ul className="story-block-list">
+                  <li>Tôn trọng giá trị tín ngưỡng Việt</li>
+                  <li>Thích nghi với đời sống hiện đại</li>
+                  <li>Mang lại cảm giác an tâm trong nghi lễ</li>
+                  <li>Đơn giản, gọn gàng, an toàn</li>
+                  <li>Kết nối gia đình và giá trị tinh thần</li>
+                  <li>Hướng tới trải nghiệm tâm linh văn minh hơn</li>
+                </ul>
+              </article>
+            </div>
           </Reveal>
-          <div className="timeline-grid">
-            {timeline.map((item, index) => (
-              <Reveal key={item.year} delay={index * 0.12}>
-                <article className="timeline-card">
-                  <div className="timeline-body">
-                    <div className="timeline-kicker">{item.year}</div>
-                    <h3 className="timeline-title">{item.title}</h3>
-                    <p className="timeline-copy">{item.text}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

@@ -90,9 +90,8 @@ function HomePage() {
               <span className="hanzi-title">Sự an tâm trong nghi lễ hiện đại</span>
             </h1>
             <p className="hero-sub">
-              Việt Mã là giải pháp giúp người Việt duy trì nghi lễ
-              truyền thống theo cách phù hợp với cuộc sống đô thị: gọn gàng, an toàn và
-              vẫn giữ trọn giá trị tâm linh.
+              Việt Mã là giải pháp giúp người Việt duy trì nghi lễ truyền thống theo cách
+              phù hợp với cuộc sống đô thị: gọn gàng, an toàn và vẫn giữ trọn giá trị tâm linh.
             </p>
             <div className="hero-actions hero-actions-left">
               <Link to="/products" className="btn-primary">
@@ -237,91 +236,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section about-section">
-        <div className="container story-grid">
-          <Reveal>
-            <div className="about-panel">
-              <div className="about-frame">
-                <div className="about-frame-glow" />
-              </div>
-              <div className="about-vision">
-                <div className="vision-hero">
-                  <p className="vision-quote">
-                    Trở thành thương hiệu Spiritual Lifestyle — giúp thế hệ
-                    hiện đại duy trì kết nối văn hóa và tín ngưỡng theo cách văn minh, tinh tế
-                    và bền vững.
-                  </p>
-                </div>
-
-                <div className="mission-hero">
-                  <p className="mission-line">
-                    <strong>
-                      Giúp người Việt thực hành nghi lễ truyền thống dễ dàng, thuận tiện và an
-                      tâm hơn thông qua sản phẩm và trải nghiệm tâm linh hiện đại.
-                    </strong>
-                  </p>
-                </div>
-
-                <div className="values-tiles">
-                  <ul className="core-values-list">
-                    <li>Tôn trọng tín ngưỡng Việt</li>
-                    <li>Thích nghi với đời sống hiện đại</li>
-                    <li>Mang lại sự an tâm</li>
-                    <li>Đơn giản — Gọn gàng — An toàn</li>
-                    <li>Kết nối gia đình và giá trị tinh thần</li>
-                    <li>Hướng tới trải nghiệm tâm linh văn minh</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal className="about-content" delay={0.15}>
-            <span className="section-tag">✦ Câu Chuyện Thương Hiệu ✦</span>
-            <h2 className="section-title">
-              Giữ truyền thống,
-              <br />
-              <em>Thiết kế cho đời sống hiện đại</em>
-            </h2>
-            <p className="about-lead">
-              Việt Mã ra đời để giữ trọn lòng thành trong nghi lễ — nhưng thực hành theo
-              cách phù hợp với không gian đô thị: an toàn, tinh tế và thuận tiện.
-            </p>
-            <p className="about-body">
-              Chúng tôi tin rằng lòng thành không nằm ở số lượng vật lễ, mà nằm ở sự chỉn
-              chu và thành tâm. Vì vậy Việt Mã cung cấp combo chuẩn nghi lễ, hướng dẫn rõ
-              ràng và dịch vụ tư vấn để bạn an tâm thực hành nghi lễ dù sống trong căn hộ nhỏ.
-            </p>
-            <div className="about-side-extras">
-              <div className="about-highlights">
-                <h4>Điểm nổi bật</h4>
-                <ul>
-                  <li>An toàn & ít khói — phù hợp chung cư</li>
-                  <li>Combo chuẩn nghi lễ kèm hướng dẫn</li>
-                  <li>Thiết kế tinh tế, đóng gói an toàn</li>
-                </ul>
-              </div>
-
-              <div className="about-ctas">
-                <Link to="/products" className="btn-primary">
-                  Xem Bộ Sưu Tập
-                </Link>
-                <Link to="/contact" className="btn-ghost">
-                  Nhờ Tư Vấn Nghi Lễ
-                </Link>
-              </div>
-            </div>
-            <div className="about-pillars">
-              {pillars.map((pillar) => (
-                <div key={pillar.title} className="pillar">
-                  <div className="pillar-title">{pillar.title}</div>
-                  <p className="pillar-text">{pillar.text}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      {/* Brand story moved to About page */}
 
       <section className="section quote-ribbon-section">
         <div className="container">
