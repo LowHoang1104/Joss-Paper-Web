@@ -1,6 +1,12 @@
 import Reveal from '../components/Reveal.jsx'
 import { products } from '../data/siteData.js'
 
+const resolveProductImage = (image) => {
+  if (!image) return null
+  if (image.startsWith('http') || image.startsWith('/')) return image
+  return new URL(image, import.meta.url).href
+}
+
 function ProductsPage() {
   return (
     <div className="page-shell">
@@ -37,7 +43,7 @@ function ProductsPage() {
                   <div className={`card-img ${product.imageClass}`}>
                     {product.image ? (
                       <img
-                        src={product.image}
+                        src={resolveProductImage(product.image)}
                         alt={product.name}
                         className="card-product-image"
                         loading="lazy"
