@@ -1,10 +1,17 @@
 import Reveal from '../components/Reveal.jsx'
 import { products } from '../data/siteData.js'
 
+const productImages = import.meta.glob('../assets/product/*.{png,jpg,jpeg,webp,avif}', {
+  eager: true,
+  import: 'default',
+})
+
 const resolveProductImage = (image) => {
   if (!image) return null
   if (image.startsWith('http') || image.startsWith('/')) return image
-  return new URL(image, import.meta.url).href
+  const fileName = image.split('/').pop()
+  const fileKey = `../assets/product/${fileName}`
+  return productImages[fileKey] || null
 }
 
 function ProductsPage() {
