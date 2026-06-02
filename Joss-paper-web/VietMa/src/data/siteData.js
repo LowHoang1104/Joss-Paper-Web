@@ -16,7 +16,7 @@ export const products = [
     unit: '',
     badge: 'Combo',
     icon: '🧧',
-    image: 'dist/assets/product/Gemini_Generated_Image_g873qdg873qdg873 (1).png',
+    image: 'src/assets/product/Gemini_Generated_Image_g873qdg873qdg873 (1).png',
     imageClass: 'card-img-bg-1',
   },
   {
@@ -28,7 +28,7 @@ export const products = [
     unit: '',
     badge: 'Combo',
     icon: '🌕',
-    image: 'dist/assets/product/Gemini_Generated_Image_g873qdg873qdg873 (1).png',
+    image: 'src/assets/product/Gemini_Generated_Image_g873qdg873qdg873 (1).png',
     imageClass: 'card-img-bg-2',
   },
   {
@@ -52,7 +52,7 @@ export const products = [
     unit: '',
     badge: 'Combo',
     icon: '👔',
-    image: 'dist/assets/product/Gemini_Generated_Image_v3zryav3zryav3zr.png',
+    image: 'src/assets/product/Gemini_Generated_Image_v3zryav3zryav3zr.png',
     imageClass: 'card-img-bg-4',
   },
   {
@@ -64,7 +64,7 @@ export const products = [
     unit: '',
     badge: 'Combo',
     icon: '🎀',
-    image: 'dist/assets/product/Gemini_Generated_Image_1nr1b91nr1b91nr1.png',
+    image: 'src/assets/product/Gemini_Generated_Image_1nr1b91nr1b91nr1.png',
     imageClass: 'card-img-bg-1',
   },
   {
@@ -76,7 +76,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🪙',
-    image: 'dist/assets/product/344201d1971d8318104da880de5c937b.jpg',
+    image: 'src/assets/product/344201d1971d8318104da880de5c937b.jpg',
     imageClass: 'card-img-bg-2',
   },
   {
@@ -88,7 +88,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🪙',
-    image: 'dist/assets/product/099de184df752f3f53dd1002711a2d66.jpg src/data/siteData.js',
+    image: 'src/assets/product/099de184df752f3f53dd1002711a2d66.jpg',
     imageClass: 'card-img-bg-3',
   },
   {
@@ -100,7 +100,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🪙',
-    image: 'dist/assets/product/2e836b4fa539ff354fe7c97df9c0fae0.jpg',
+    image: 'src/assets/product/2e836b4fa539ff354fe7c97df9c0fae0.jpg',
     imageClass: 'card-img-bg-4',
   },
   {
@@ -112,7 +112,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '💵',
-    image: 'dist/assets/product/wad-100-dollar-bills_339569-1615.avif',
+    image: 'src/assets/product/wad-100-dollar-bills_339569-1615.avif',
     imageClass: 'card-img-bg-1',
   },
   {
@@ -124,7 +124,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '💴',
-    image: 'dist/assets/product/OIP.webp',
+    image: 'src/assets/product/OIP.webp',
     imageClass: 'card-img-bg-2',
   },
   {
@@ -136,7 +136,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '💴',
-    image: 'dist/assets/product/z2979693190061ccab52456528d679.webp',
+    image: 'src/assets/product/z2979693190061ccab52456528d679.webp',
     imageClass: 'card-img-bg-3',
   },
   {
@@ -148,7 +148,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🧾',
-    image: 'dist/assets/product/vn-11134207-7r98o-lo7u4q25nth3c7.jpg',
+    image: 'src/assets/product/vn-11134207-7r98o-lo7u4q25nth3c7.jpg',
     imageClass: 'card-img-bg-4',
   },
   {
@@ -160,7 +160,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🪙',
-    image: 'dist/assets/product/z3354584011127-23f5c1f3d24987982aac6f6e1149fcb5.jpg',
+    image: 'src/assets/product/z3354584011127-23f5c1f3d24987982aac6f6e1149fcb5.jpg',
     imageClass: 'card-img-bg-1',
   },
   {
@@ -172,7 +172,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🏅',
-    image: 'dist/assets/product/OIP (1).webp',
+    image: 'src/assets/product/OIP (1).webp',
     imageClass: 'card-img-bg-2',
   },
   {
@@ -184,7 +184,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🥈',
-    image: 'dist/assets/product/4e7b3c412e5345d309c3c4180cc0bdea@resize_w900_nl.webp',
+    image: 'src/assets/product/4e7b3c412e5345d309c3c4180cc0bdea@resize_w900_nl.webp',
     imageClass: 'card-img-bg-3',
   },
   {
@@ -196,7 +196,7 @@ export const products = [
     unit: '',
     badge: 'Bổ trợ',
     icon: '🌿',
-    image: 'dist/assets/product/9c702b9a19cc3fd582b2849ca98d3416.jpg',
+    image: 'src/assets/product/9c702b9a19cc3fd582b2849ca98d3416.jpg',
     imageClass: 'card-img-bg-4',
   },
   {
@@ -208,7 +208,7 @@ export const products = [
     unit: '',
     badge: 'Bổ trợ',
     icon: '🌀',
-    image: 'dist/assets/product/nhang-vong-24h.jpg',
+    image: 'src/assets/product/nhang-vong-24h.jpg',
     imageClass: 'card-img-bg-1',
   },
   {
@@ -220,7 +220,7 @@ export const products = [
     unit: '',
     badge: 'Bổ trợ',
     icon: '🕯️',
-    image: 'dist/assets/product/vn-11134207-7ras8-m21nvpnj9uvv66.jpg',
+    image: 'src/assets/product/vn-11134207-7ras8-m21nvpnj9uvv66.jpg',
     imageClass: 'card-img-bg-2',
   },
   {
@@ -374,7 +374,6 @@ export const footerGroups = [
     links: [
       { to: '/products', label: 'Tiền & Trang sức' },
       { to: '/products', label: 'Nhang & Trầm hương' },
-      { to: '/products', label: 'Quẩn áo' },
       { to: '/products', label: 'Combo trọn bộ' },
     ],
   },
