@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal.jsx'
 import heroLotus from '../assets/Gemini_Generated_Image_ubb6dqubb6dqubb6-Photoroom.png'
-import { blogPosts, pillars, products } from '../data/siteData.js'
+import { blogPosts, products } from '../data/siteData.js'
 
 const productImages = import.meta.glob('../assets/product/*.{png,jpg,jpeg,webp,avif}', {
   eager: true,
