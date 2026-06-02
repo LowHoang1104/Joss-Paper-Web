@@ -11,8 +11,6 @@ function ProductsPage() {
             Danh Mục <em>Vàng Mã</em>
           </h1>
           <p className="page-hero-copy">
-            Danh mục sản phẩm được sắp theo 3 nhóm chính: combo, sản phẩm lẻ và sản phẩm bổ trợ,
-            để bạn xem như một catalog rõ ràng và dễ chọn.
           </p>
           <div className="page-hero-meta">
             <span className="page-chip">18 sản phẩm</span>
@@ -37,7 +35,16 @@ function ProductsPage() {
               <Reveal key={product.id} delay={(index % 3) * 0.1}>
                 <article className="product-card">
                   <div className={`card-img ${product.imageClass}`}>
-                    <div className="card-img-inner">{product.icon}</div>
+                    {product.image ? (
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="card-product-image"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="card-img-inner">{product.icon}</div>
+                    )}
                     {product.badge ? <span className="card-badge">{product.badge}</span> : null}
                   </div>
                   <div className="card-body">
@@ -48,7 +55,7 @@ function ProductsPage() {
                       <div className="card-price">
                         {product.price} <span>{product.unit}</span>
                       </div>
-                      <span className="card-btn">Sắp có ảnh</span>
+                      <span className="card-btn">Xem thêm</span>
                     </div>
                   </div>
                 </article>

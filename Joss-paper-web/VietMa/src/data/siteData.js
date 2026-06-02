@@ -16,6 +16,7 @@ export const products = [
     unit: '',
     badge: 'Combo',
     icon: '🧧',
+    image: 'dist/assets/product/Gemini_Generated_Image_g873qdg873qdg873 (1).png',
     imageClass: 'card-img-bg-1',
   },
   {
@@ -27,6 +28,7 @@ export const products = [
     unit: '',
     badge: 'Combo',
     icon: '🌕',
+    image: 'dist/assets/product/Gemini_Generated_Image_g873qdg873qdg873 (1).png',
     imageClass: 'card-img-bg-2',
   },
   {
@@ -38,6 +40,7 @@ export const products = [
     unit: '',
     badge: 'Combo',
     icon: '🙏',
+    image: '',
     imageClass: 'card-img-bg-3',
   },
   {
@@ -49,6 +52,7 @@ export const products = [
     unit: '',
     badge: 'Combo',
     icon: '👔',
+    image: 'dist/assets/product/Gemini_Generated_Image_v3zryav3zryav3zr.png',
     imageClass: 'card-img-bg-4',
   },
   {
@@ -60,6 +64,7 @@ export const products = [
     unit: '',
     badge: 'Combo',
     icon: '🎀',
+    image: 'dist/assets/product/Gemini_Generated_Image_1nr1b91nr1b91nr1.png',
     imageClass: 'card-img-bg-1',
   },
   {
@@ -71,6 +76,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🪙',
+    image: 'dist/assets/product/344201d1971d8318104da880de5c937b.jpg',
     imageClass: 'card-img-bg-2',
   },
   {
@@ -82,6 +88,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🪙',
+    image: 'dist/assets/product/099de184df752f3f53dd1002711a2d66.jpg src/data/siteData.js',
     imageClass: 'card-img-bg-3',
   },
   {
@@ -93,6 +100,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🪙',
+    image: 'dist/assets/product/2e836b4fa539ff354fe7c97df9c0fae0.jpg',
     imageClass: 'card-img-bg-4',
   },
   {
@@ -104,6 +112,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '💵',
+    image: 'dist/assets/product/wad-100-dollar-bills_339569-1615.avif',
     imageClass: 'card-img-bg-1',
   },
   {
@@ -115,6 +124,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '💴',
+    image: 'dist/assets/product/OIP.webp',
     imageClass: 'card-img-bg-2',
   },
   {
@@ -126,6 +136,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '💴',
+    image: 'dist/assets/product/z2979693190061ccab52456528d679.webp',
     imageClass: 'card-img-bg-3',
   },
   {
@@ -137,6 +148,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🧾',
+    image: 'dist/assets/product/vn-11134207-7r98o-lo7u4q25nth3c7.jpg',
     imageClass: 'card-img-bg-4',
   },
   {
@@ -148,6 +160,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🪙',
+    image: 'dist/assets/product/z3354584011127-23f5c1f3d24987982aac6f6e1149fcb5.jpg',
     imageClass: 'card-img-bg-1',
   },
   {
@@ -159,6 +172,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🏅',
+    image: 'dist/assets/product/OIP (1).webp',
     imageClass: 'card-img-bg-2',
   },
   {
@@ -170,6 +184,7 @@ export const products = [
     unit: '',
     badge: '',
     icon: '🥈',
+    image: 'dist/assets/product/4e7b3c412e5345d309c3c4180cc0bdea@resize_w900_nl.webp',
     imageClass: 'card-img-bg-3',
   },
   {
@@ -181,6 +196,7 @@ export const products = [
     unit: '',
     badge: 'Bổ trợ',
     icon: '🌿',
+    image: 'dist/assets/product/9c702b9a19cc3fd582b2849ca98d3416.jpg',
     imageClass: 'card-img-bg-4',
   },
   {
@@ -192,6 +208,7 @@ export const products = [
     unit: '',
     badge: 'Bổ trợ',
     icon: '🌀',
+    image: 'dist/assets/product/nhang-vong-24h.jpg',
     imageClass: 'card-img-bg-1',
   },
   {
@@ -203,6 +220,7 @@ export const products = [
     unit: '',
     badge: 'Bổ trợ',
     icon: '🕯️',
+    image: 'dist/assets/product/vn-11134207-7ras8-m21nvpnj9uvv66.jpg',
     imageClass: 'card-img-bg-2',
   },
   {
@@ -214,6 +232,7 @@ export const products = [
     unit: '',
     badge: 'Bổ trợ',
     icon: '🧴',
+    image: '',
     imageClass: 'card-img-bg-3',
   },
 ]
@@ -328,21 +347,21 @@ export const rituals = [
 export const contactCards = [
   {
     kicker: 'Showroom',
-    title: 'Làng nghề Đông Hồ',
-    value: 'Thuận Thành, Bắc Ninh',
+    title: 'Viet Ma Workshop',
+    value: 'Họa lạc, Thạch thất, Hà Nội',
     copy: 'Tham quan xưởng, xem mẫu thủ công và nhận tư vấn trực tiếp theo từng dịp lễ.',
     action: 'Xem đường đi',
   },
   {
     kicker: 'Hotline',
-    title: '0901 234 567',
+    title: '0329704366',
     value: '7:00 - 19:00, Thứ 2 - CN',
     copy: 'Hỗ trợ đặt hàng nhanh, báo giá sỉ lẻ và gợi ý trọn bộ lễ vật phù hợp.',
     action: 'Gọi ngay',
   },
   {
     kicker: 'Tư vấn online',
-    title: 'hello@vietma.vn',
+    title: 'vietma526@gmail.com',
     value: 'Phản hồi trong ngày',
     copy: 'Phù hợp khi cần gửi danh sách sản phẩm, hình mẫu hoặc trao đổi đơn hàng đường xa.',
     action: 'Gửi email',
@@ -353,10 +372,9 @@ export const footerGroups = [
   {
     title: 'Danh Mục',
     links: [
-      { to: '/products', label: 'Đèn lồng & Nến' },
+      { to: '/products', label: 'Tiền & Trang sức' },
       { to: '/products', label: 'Nhang & Trầm hương' },
-      { to: '/products', label: 'Trang sức vàng mã' },
-      { to: '/products', label: 'Nhà cửa & Xe cộ' },
+      { to: '/products', label: 'Quẩn áo' },
       { to: '/products', label: 'Combo trọn bộ' },
     ],
   },

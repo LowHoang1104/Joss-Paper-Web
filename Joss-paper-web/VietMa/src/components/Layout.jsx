@@ -111,13 +111,9 @@ function Layout() {
               <p>
                 <strong>Showroom:</strong>
                 <br />
-                Làng nghề Đông Hồ, Thuận Thành, Bắc Ninh
+                Họa lạc, Thạch thất, Hà Nội
               </p>
-              <p>
-                <strong>Hotline:</strong>
-                <br />
-                0901 234 567
-              </p>
+             
               <p>
                 <strong>Giờ mở cửa:</strong>
                 <br />
