@@ -13,8 +13,7 @@ function BlogPage() {
             Tâm Linh <em>Đời Sống</em>
           </h1>
           <p className="page-hero-copy">
-            Thay vì nằm cuối landing page, toàn bộ phần bài viết giờ đã có trang riêng để bạn
-            phát triển thành thư viện nội dung, lịch lễ và hướng dẫn nghi thức theo mùa vụ.
+            
           </p>
         </div>
       </section>

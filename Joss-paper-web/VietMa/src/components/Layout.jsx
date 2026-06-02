@@ -111,7 +111,7 @@ function Layout() {
               <p>
                 <strong>Showroom:</strong>
                 <br />
-                Họa lạc, Thạch thất, Hà Nội
+                Hòa lạc, Thạch thất, Hà Nội
               </p>
              
               <p>

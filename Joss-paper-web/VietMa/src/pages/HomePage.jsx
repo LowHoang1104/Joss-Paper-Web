@@ -3,6 +3,19 @@ import Reveal from '../components/Reveal.jsx'
 import heroLotus from '../assets/Gemini_Generated_Image_ubb6dqubb6dqubb6-Photoroom.png'
 import { blogPosts, pillars, products } from '../data/siteData.js'
 
+const productImages = import.meta.glob('../assets/product/*.{png,jpg,jpeg,webp,avif}', {
+  eager: true,
+  import: 'default',
+})
+
+const resolveProductImage = (image) => {
+  if (!image) return null
+  if (image.startsWith('http') || image.startsWith('/')) return image
+  const fileName = image.split('/').pop()
+  const fileKey = `../assets/product/${fileName}`
+  return productImages[fileKey] || null
+}
+
 const embers = Array.from({ length: 28 }, (_, index) => {
   const size = 2 + ((index * 17) % 4)
 
@@ -106,7 +119,7 @@ function HomePage() {
           <Reveal className="hero-side" delay={0.25}>
             <div className="ritual-note">
               <div className="ritual-note-kicker">Giải pháp ritual cho đô thị</div>
-              <h2 className="ritual-note-title">Chúng tôi bán sự an tâm, không chỉ bán vàng mã.</h2>
+              <h2 className="ritual-note-title">Chúng không chỉ bán vàng mã mà còn bán sự an tâm.</h2>
               <p className="ritual-note-copy">
                 Việt Mã thiết kế sản phẩm và trải nghiệm để bạn thực hành nghi lễ đầy đủ
                 và an tâm trong không gian nhỏ: ít khói, an toàn và thẩm mỹ.
@@ -159,7 +172,7 @@ function HomePage() {
                 <div className={`card-img card-img-tall ${spotlightProduct.imageClass}`}>
                   {spotlightProduct.image ? (
                     <img
-                      src={spotlightProduct.image}
+                      src={resolveProductImage(spotlightProduct.image)}
                       alt={spotlightProduct.name}
                       className="card-product-image"
                       loading="lazy"
@@ -200,7 +213,7 @@ function HomePage() {
                   <div className={`card-img ${product.imageClass}`}>
                     {product.image ? (
                       <img
-                        src={product.image}
+                        src={resolveProductImage(product.image)}
                         alt={product.name}
                         className="card-product-image"
                         loading="lazy"
@@ -238,17 +251,7 @@ function HomePage() {
 
       {/* Brand story moved to About page */}
 
-      <section className="section quote-ribbon-section">
-        <div className="container">
-          <Reveal className="quote-ribbon">
-            <div className="quote-ribbon-mark">Lễ</div>
-            <p>
-              “Đẹp” ở đây không đến từ việc thêm nhiều hiệu ứng, mà từ cảm giác có bàn tay người,
-              có nhịp điệu bố cục và có chỗ thở giữa các mảng nội dung.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      
 
       <section className="section blog-section">
         <div className="container">
@@ -260,12 +263,7 @@ function HomePage() {
               </h2>
             </Reveal>
 
-            <Reveal className="section-marginalia section-marginalia-blog" delay={0.1}>
-              <span className="section-marginalia-label">Biên tập</span>
-              <p>
-                Bố cục blog được giữ chất trang trọng, nhưng có thêm cảm giác tạp chí văn hóa thay vì khối thẻ lặp lại.
-              </p>
-            </Reveal>
+            
           </div>
 
           <div className="blog-grid">

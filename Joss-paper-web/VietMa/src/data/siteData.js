@@ -348,14 +348,14 @@ export const contactCards = [
   {
     kicker: 'Showroom',
     title: 'Viet Ma Workshop',
-    value: 'Họa lạc, Thạch thất, Hà Nội',
+    value: 'Hòa lạc, Thạch thất, Hà Nội',
     copy: 'Tham quan xưởng, xem mẫu thủ công và nhận tư vấn trực tiếp theo từng dịp lễ.',
     action: 'Xem đường đi',
   },
   {
     kicker: 'Hotline',
     title: '0329704366',
-    value: '7:00 - 19:00, Thứ 2 - CN',
+    value: '7:00 - 19:00, Thứ 2 - T7',
     copy: 'Hỗ trợ đặt hàng nhanh, báo giá sỉ lẻ và gợi ý trọn bộ lễ vật phù hợp.',
     action: 'Gọi ngay',
   },
@@ -372,7 +372,7 @@ export const footerGroups = [
   {
     title: 'Danh Mục',
     links: [
-      { to: '/products', label: 'Tiền & Trang sức' },
+      { to: '/products', label: 'Tiền & Vàng' },
       { to: '/products', label: 'Nhang & Trầm hương' },
       { to: '/products', label: 'Combo trọn bộ' },
     ],

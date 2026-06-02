@@ -26,8 +26,7 @@ function ContactPage() {
             Nhận Tư Vấn <em>Theo Từng Dịp Lễ</em>
           </h1>
           <p className="page-hero-copy">
-            Trang liên hệ độc lập giúp gom thông tin showroom, hotline, email và form tư vấn vào một nơi,
-            thay vì để rải rác cuối landing page.
+            
           </p>
         </div>
       </section>

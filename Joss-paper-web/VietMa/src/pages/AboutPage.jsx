@@ -14,7 +14,7 @@ function AboutPage() {
             <em>Giữa truyền thống và đời sống hiện đại</em>
           </h1>
           <p className="page-hero-copy">
-            Một thương hiệu spiritual lifestyle giúp người Việt duy trì nghi lễ truyền thống theo
+            Một thương hiệu lối sống tinh thần giúp người Việt duy trì nghi lễ truyền thống theo
             cách phù hợp hơn với nhịp sống đô thị: tinh tế, an toàn và vẫn giữ trọn giá trị tinh thần.
           </p>
         </div>
@@ -92,7 +92,7 @@ function AboutPage() {
               <article className="about-story-block">
                 <div className="story-block-label">Vision</div>
                 <p className="story-block-copy story-block-emphasis">
-                  Trở thành thương hiệu tiên phong trong lĩnh vực spiritual lifestyle tại Việt Nam, giúp
+                  Trở thành thương hiệu tiên phong trong lĩnh vực lối sống tinh thần tại Việt Nam, giúp
                   thế hệ hiện đại duy trì kết nối văn hóa và tín ngưỡng theo cách văn minh, tinh tế và
                   bền vững hơn.
                 </p>
