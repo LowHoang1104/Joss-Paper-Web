@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 import { NavLink, Outlet, ScrollRestoration, useLocation } from 'react-router-dom'
 import brandLogo from '../assets/Logo.png'
 import ChatAdvisor from './ChatAdvisor.jsx'
+import ContactModal from './ContactModal.jsx'
 import { footerGroups, navLinks } from '../data/siteData.js'
 
 function Layout() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const location = useLocation()
@@ -64,14 +66,25 @@ function Layout() {
             </NavLink>
           ))}
 
-          <NavLink to="/contact" className="nav-link nav-link-mobile-cta" onClick={closeMobileMenu}>
+          <button
+            type="button"
+            className="nav-link nav-link-mobile-cta nav-link-button"
+            onClick={() => {
+              setIsContactModalOpen(true)
+              closeMobileMenu()
+            }}
+          >
             Tư Vấn Ngay
-          </NavLink>
+          </button>
         </nav>
 
-        <NavLink to="/contact" className="nav-cta nav-cta-desktop">
+        <button
+          type="button"
+          className="nav-cta nav-cta-desktop nav-link-button"
+          onClick={() => setIsContactModalOpen(true)}
+        >
           Tư Vấn Ngay
-        </NavLink>
+        </button>
       </header>
 
       <main className="main-content">
@@ -130,6 +143,8 @@ function Layout() {
       </footer>
 
       <ChatAdvisor />
+
+      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
 
       <ScrollRestoration />
     </div>

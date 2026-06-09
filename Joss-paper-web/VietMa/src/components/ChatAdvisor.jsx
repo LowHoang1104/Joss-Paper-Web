@@ -68,7 +68,6 @@ function ChatAdvisor() {
           <header className="chat-advisor-header">
             <div>
               <p className="chat-advisor-title">Tư vấn viên Việt Mã</p>
-              <p className="chat-advisor-subtitle">Theo prompt thương hiệu, hỗ trợ 24/7</p>
             </div>
             <button
               type="button"

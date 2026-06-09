@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import Reveal from '../components/Reveal.jsx'
 import { contactCards } from '../data/siteData.js'
+
+const googleSheetUrl = 'https://script.google.com/macros/s/AKfycbx7eoRUN8z4O4KWbyAkTPHh8XuH7G_Y2W-RIp2iz4RXTGWyzvHELJWW0UtnbC1SH1Y0vg/exec?key=123123'
 
 const highlights = [
   {
@@ -41,7 +44,7 @@ function ContactPage() {
                   Nói Chuyện Với <em>Người Có Nghề</em>
                 </h2>
                 <p className="section-copy">
-                  Bạn có thể dùng trang này như điểm chốt CTA chính cho toàn bộ website.
+                  
                 </p>
               </Reveal>
 
@@ -68,43 +71,10 @@ function ContactPage() {
                   Gửi Yêu Cầu <em>Tư Vấn</em>
                 </h2>
                 <p className="contact-copy">
-                  Form hiện là giao diện tĩnh. Nếu muốn, bước tiếp theo có thể nối sang email,
-                  Google Sheets hoặc backend nhận đơn thật.
+                
                 </p>
 
-                <form className="contact-form-grid">
-                  <div className="field">
-                    <label htmlFor="name">Họ tên</label>
-                    <input id="name" name="name" type="text" placeholder="Nguyễn Văn A" />
-                  </div>
-                  <div className="field">
-                    <label htmlFor="phone">Số điện thoại</label>
-                    <input id="phone" name="phone" type="tel" placeholder="0901 234 567" />
-                  </div>
-                  <div className="field-full">
-                    <label htmlFor="occasion">Dịp lễ cần chuẩn bị</label>
-                    <input
-                      id="occasion"
-                      name="occasion"
-                      type="text"
-                      placeholder="Ví dụ: Thanh Minh, giỗ đầu, Rằm tháng 7"
-                    />
-                  </div>
-                  <div className="field-full">
-                    <label htmlFor="message">Nhu cầu cụ thể</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="6"
-                      placeholder="Cần tư vấn số lượng, ngân sách và danh sách vật phẩm"
-                    />
-                  </div>
-                  <div className="field-full">
-                    <button type="submit" className="contact-submit">
-                      Gửi yêu cầu
-                    </button>
-                  </div>
-                </form>
+                <ContactFormInner />
               </div>
             </Reveal>
           </div>
@@ -126,3 +96,65 @@ function ContactPage() {
 }
 
 export default ContactPage
+
+function ContactFormInner() {
+  const [formValues, setFormValues] = useState({
+    name: '',
+    phone: '',
+    occasion: '',
+    message: '',
+  })
+  const [status, setStatus] = useState('')
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormValues((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('Đang gửi...')
+    const payload = {
+      source: 'Contact Page',
+      name: formValues.name,
+      phone: formValues.phone,
+      occasion: formValues.occasion,
+      message: formValues.message,
+    }
+
+    try {
+      const urlWithParams = `${googleSheetUrl}&${new URLSearchParams(payload).toString()}`
+      const res = await fetch(urlWithParams)
+      if (!res.ok) throw new Error('Send failed')
+      setStatus('Gửi thành công! Chúng tôi sẽ liên hệ bạn sớm.')
+      setFormValues({ name: '', phone: '', occasion: '', message: '' })
+    } catch (err) {
+      setStatus('Không gửi được. Vui lòng thử lại hoặc liên hệ hotline.')
+    }
+  }
+
+  return (
+    <form className="contact-form-grid" onSubmit={handleSubmit}>
+      <div className="field">
+        <label htmlFor="name">Họ tên</label>
+        <input id="name" name="name" type="text" placeholder="Nguyễn Văn A" value={formValues.name} onChange={handleChange} required />
+      </div>
+      <div className="field">
+        <label htmlFor="phone">Số điện thoại</label>
+        <input id="phone" name="phone" type="tel" placeholder="0901 234 567" value={formValues.phone} onChange={handleChange} required />
+      </div>
+      <div className="field-full">
+        <label htmlFor="occasion">Dịp lễ cần chuẩn bị</label>
+        <input id="occasion" name="occasion" type="text" placeholder="Ví dụ: Thanh Minh, giỗ đầu, Rằm tháng 7" value={formValues.occasion} onChange={handleChange} />
+      </div>
+      <div className="field-full">
+        <label htmlFor="message">Nhu cầu cụ thể</label>
+        <textarea id="message" name="message" rows="6" placeholder="Cần tư vấn số lượng, ngân sách và danh sách vật phẩm" value={formValues.message} onChange={handleChange} />
+      </div>
+      <div className="field-full">
+        <button type="submit" className="contact-submit">Gửi yêu cầu</button>
+      </div>
+      {status ? <p className="submit-status">{status}</p> : null}
+    </form>
+  )
+}

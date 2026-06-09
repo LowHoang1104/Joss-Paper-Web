@@ -119,7 +119,7 @@ function HomePage() {
           <Reveal className="hero-side" delay={0.25}>
             <div className="ritual-note">
               <div className="ritual-note-kicker">Giải pháp ritual cho đô thị</div>
-              <h2 className="ritual-note-title">Chúng không chỉ bán vàng mã mà còn bán sự an tâm.</h2>
+              <h2 className="ritual-note-title">Chúng tôi không chỉ bán vàng mã mà còn bán sự an tâm.</h2>
               <p className="ritual-note-copy">
                 Việt Mã thiết kế sản phẩm và trải nghiệm để bạn thực hành nghi lễ đầy đủ
                 và an tâm trong không gian nhỏ: ít khói, an toàn và thẩm mỹ.

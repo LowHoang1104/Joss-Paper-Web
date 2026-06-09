@@ -50,79 +50,73 @@ function AboutPage() {
             </h2>
 
             <div className="about-story-stack">
-              <article className="about-story-block">
-                <div className="story-block-label">Tên thương hiệu</div>
+              <article className="about-story-block about-summary-card">
+                <div className="story-block-label">Cốt lõi thương hiệu</div>
+                <h3 className="story-summary-title">Việt Mã giúp nghi thức tâm linh trở nên vừa trang trọng, vừa phù hợp với đời sống đô thị.</h3>
                 <p className="story-block-copy">
-                  <strong>Việt</strong> đại diện cho văn hóa, truyền thống và bản sắc người Việt.
-                  <br />
-                  <strong>Mã</strong> là biểu tượng của vàng mã, tín ngưỡng tâm linh và sự kết nối
-                  giữa người sống với tổ tiên.
+                  Chúng tôi kết hợp giá trị truyền thống với trải nghiệm lễ nghi gọn gàng, an toàn và dễ áp dụng.
                 </p>
-                <p className="story-block-copy story-block-emphasis">
-                  Việt Mã không chỉ đại diện cho sản phẩm vàng mã. Thương hiệu được định vị như
-                  một giải pháp tâm linh hiện đại, giúp người Việt duy trì nghi lễ truyền thống theo
-                  cách phù hợp hơn với cuộc sống đô thị ngày nay.
-                </p>
-              </article>
-
-              <article className="about-story-block">
-                <div className="story-block-label">Brand story</div>
-                <p className="story-block-copy">
-                  Trong nhiều thế hệ, đốt vàng mã là một phần trong đời sống tín ngưỡng của người Việt.
-                  Đó không chỉ là một nghi thức, mà là sự tưởng nhớ, lòng hiếu kính, cảm giác kết nối với
-                  tổ tiên và niềm tin về sự bình an, đủ đầy.
-                </p>
-                <p className="story-block-copy">
-                  Nhưng cuộc sống hiện đại đang thay đổi cách con người sinh hoạt: căn hộ nhỏ hơn,
-                  quy định an toàn nghiêm ngặt hơn, con người bận rộn hơn và không gian sống đô thị
-                  ngày càng hạn chế.
-                </p>
-                <p className="story-block-copy">
-                  Người Việt không muốn từ bỏ tín ngưỡng. Họ chỉ không còn phù hợp với cách thực hành cũ.
-                  Việt Mã ra đời để giải quyết khoảng cách đó: không thay đổi giá trị truyền thống, mà tái
-                  thiết kế trải nghiệm nghi lễ gọn hơn, an toàn hơn, tinh tế hơn, nhưng vẫn giữ trọn giá trị
-                  tinh thần.
-                </p>
-                <p className="story-block-copy story-block-emphasis">
-                  Việt Mã tin rằng: lộc không nằm ở số lượng vàng mã được đốt, mà nằm ở sự chỉn chu,
-                  thành tâm và cảm giác đủ đầy trong nghi lễ.
-                </p>
-              </article>
-
-              <article className="about-story-block">
-                <div className="story-block-label">Vision</div>
-                <p className="story-block-copy story-block-emphasis">
-                  Trở thành thương hiệu tiên phong trong lĩnh vực lối sống tinh thần tại Việt Nam, giúp
-                  thế hệ hiện đại duy trì kết nối văn hóa và tín ngưỡng theo cách văn minh, tinh tế và
-                  bền vững hơn.
-                </p>
-              </article>
-
-              <article className="about-story-block">
-                <div className="story-block-label">Mission</div>
-                <p className="story-block-copy">Giúp người Việt:</p>
-                <ul className="story-block-list">
-                  <li>duy trì nghi lễ truyền thống</li>
-                  <li>cảm thấy an tâm khi thực hành tín ngưỡng</li>
-                  <li>cân bằng giữa đời sống hiện đại và giá trị văn hóa</li>
-                </ul>
-                <p className="story-block-copy">
-                  Thông qua sản phẩm ritual hiện đại, trải nghiệm tâm linh tinh gọn và giải pháp phù hợp
-                  không gian sống đô thị.
-                </p>
-              </article>
-
-              <article className="about-story-block">
-                <div className="story-block-label">Core Values</div>
-                <ul className="story-block-list">
-                  <li>Tôn trọng giá trị tín ngưỡng Việt</li>
-                  <li>Thích nghi với đời sống hiện đại</li>
-                  <li>Mang lại cảm giác an tâm trong nghi lễ</li>
-                  <li>Đơn giản, gọn gàng, an toàn</li>
-                  <li>Kết nối gia đình và giá trị tinh thần</li>
-                  <li>Hướng tới trải nghiệm tâm linh văn minh hơn</li>
+                <ul className="story-block-list story-block-list-compact">
+                  <li>Giữ gìn tín ngưỡng Việt Nam</li>
+                  <li>Thực hành nghi lễ an toàn trong đô thị</li>
+                  <li>Trải nghiệm nhẹ nhàng, vẫn đủ trang nghiêm</li>
                 </ul>
               </article>
+
+              <article className="about-story-block about-grid-block">
+                <div className="story-block-label">Ý nghĩa tên gọi</div>
+                <p className="story-block-copy">
+                  <strong>Việt</strong> là văn hoá, là tâm thức và bản sắc người Việt.
+                </p>
+                <p className="story-block-copy">
+                  <strong>Mã</strong> là nghi lễ vàng mã, là kết nối giữa người sống và tổ tiên.
+                </p>
+                <p className="story-block-copy story-block-emphasis">
+                  Việt Mã chính là điểm gặp gỡ giữa truyền thống và giải pháp lễ nghi hiện đại.
+                </p>
+              </article>
+
+              <article className="about-story-block about-grid-block">
+                <div className="story-block-label">Câu chuyện thương hiệu</div>
+                <p className="story-block-copy">
+                  Khi đô thị thay đổi, nghi lễ truyền thống vẫn cần được giữ gìn. Nhưng không gian nhỏ, thời gian hạn chế
+                  và an toàn bắt buộc khiến cách thực hành cũ không còn phù hợp.
+                </p>
+                <p className="story-block-copy story-block-emphasis">
+                  Việt Mã ra đời để giữ trọn niềm tin, đồng thời làm cho nghi lễ trở nên gọn gàng, dễ nhớ và đầy ý nghĩa.
+                </p>
+              </article>
+
+              <div className="about-card-grid">
+                <article className="story-card">
+                  <div className="story-card-label">Tầm nhìn</div>
+                  <p className="story-card-copy">
+                    Xây dựng một lối sống tâm linh hiện đại, nơi nghi lễ truyền thống được gìn giữ bằng cách sống văn minh và an toàn.
+                  </p>
+                </article>
+
+                <article className="story-card">
+                  <div className="story-card-label">Sứ mệnh</div>
+                  <p className="story-card-copy">
+                    Giúp người Việt duy trì nghi lễ truyền thống theo cách phù hợp với đời sống đô thị: trọn tâm, trang nghiêm và tinh gọn.
+                  </p>
+                  <ul className="story-block-list story-block-list-compact">
+                    <li>Giữ gìn nghi lễ</li>
+                    <li>An toàn và văn minh</li>
+                    <li>Phù hợp không gian nhỏ</li>
+                  </ul>
+                </article>
+
+                <article className="story-card">
+                  <div className="story-card-label">Giá trị cốt lõi</div>
+                  <ul className="story-block-list story-block-list-compact">
+                    <li>Tôn trọng tín ngưỡng</li>
+                    <li>Thực hành văn minh</li>
+                    <li>Đơn giản nhưng trang trọng</li>
+                    <li>Kết nối gia đình</li>
+                  </ul>
+                </article>
+              </div>
             </div>
           </Reveal>
         </div>
