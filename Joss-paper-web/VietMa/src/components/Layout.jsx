@@ -100,6 +100,7 @@ function Layout() {
               <div className="footer-brand-sub">Vàng Mã Mini · Nhóm khởi nghiệp</div>
               <p className="footer-desc">
                 Chúng tôi là nhóm khởi nghiệp tập trung dòng vàng mã mini,
+                <br />
                 ưu tiên thiết kế chỉn chu, dễ chọn và phù hợp nếp lễ của gia đình Việt.
               </p>
             </div>
@@ -124,7 +125,7 @@ function Layout() {
               <p>
                 <strong>Showroom:</strong>
                 <br />
-                Hòa lạc, Thạch thất, Hà Nội
+                Hòa Lạc, Thạch Thất, Hà Nội
               </p>
              
               <p>

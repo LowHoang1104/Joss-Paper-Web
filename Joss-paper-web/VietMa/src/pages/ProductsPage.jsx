@@ -200,9 +200,6 @@ function ProductsPage() {
               </div>
               {submitStatus ? <p className="submit-status">{submitStatus}</p> : null}
             </form>
-            <p className="contact-copy" style={{ marginTop: '18px' }}>
-              Dữ liệu đơn hàng sẽ gửi trực tiếp tới Google Sheets qua webhook Google Apps Script đã cài sẵn.
-            </p>
           </div>
         </div>
       ) : null}

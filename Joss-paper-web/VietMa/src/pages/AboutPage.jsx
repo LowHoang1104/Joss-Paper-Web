@@ -11,7 +11,11 @@ function AboutPage() {
           <h1 className="page-hero-title">
             Việt Mã
             <br />
-            <em>Giữa truyền thống và đời sống hiện đại</em>
+            <em>Giữa truyền thống</em>
+            <br />
+            <em>và</em>
+            <br />            <em>đời sống đô thị</em>
+            
           </h1>
           <p className="page-hero-copy">
             Một thương hiệu lối sống tinh thần giúp người Việt duy trì nghi lễ truyền thống theo
