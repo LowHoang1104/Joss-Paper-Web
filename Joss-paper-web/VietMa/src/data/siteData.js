@@ -41,7 +41,7 @@ export const products = [
     unit: '',
     badge: 'Combo',
     icon: '🙏',
-    image: '',
+    image: '../assets/product/Gemini_Generated_Image_y0ljmly0ljmly0lj.png',
     imageClass: 'card-img-bg-3',
   },
   {
