@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet, ScrollRestoration, useLocation } from 'react-router-dom'
 import brandLogo from '../assets/Logo.png'
+import AuthButton from './AuthButton.jsx'
+import CartLink from './CartLink.jsx'
 import ChatAdvisor from './ChatAdvisor.jsx'
 import ContactModal from './ContactModal.jsx'
 import { footerGroups, navLinks } from '../data/siteData.js'
@@ -76,15 +78,23 @@ function Layout() {
           >
             Tư Vấn Ngay
           </button>
+
+          <AuthButton mobile onAuthAction={closeMobileMenu} />
+          <CartLink mobile onClick={closeMobileMenu} />
         </nav>
 
-        <button
-          type="button"
-          className="nav-cta nav-cta-desktop nav-link-button"
-          onClick={() => setIsContactModalOpen(true)}
-        >
-          Tư Vấn Ngay
-        </button>
+        <div className="nav-actions">
+          <CartLink />
+          <AuthButton />
+
+          <button
+            type="button"
+            className="nav-cta nav-cta-desktop nav-link-button"
+            onClick={() => setIsContactModalOpen(true)}
+          >
+            Tư Vấn Ngay
+          </button>
+        </div>
       </header>
 
       <main className="main-content">

@@ -4,6 +4,7 @@ export const navLinks = [
   { to: '/about', label: 'Về Chúng Tôi' },
   { to: '/blog', label: 'Kiến Thức' },
   { to: '/contact', label: 'Liên Hệ' },
+  { to: '/policy', label: 'Chính Sách' },
 ]
 
 export const products = [
@@ -232,7 +233,7 @@ export const products = [
     unit: '',
     badge: 'Bổ trợ',
     icon: '🧴',
-    image: '',
+    image: '../assets/product/Gemini_Generated_Image_k5egoik5egoik5eg.png',
     imageClass: 'card-img-bg-3',
   },
 ]
@@ -381,7 +382,7 @@ export const footerGroups = [
     title: 'Hỗ Trợ',
     links: [
       { to: '/contact', label: 'Hướng dẫn mua hàng' },
-      { to: '/contact', label: 'Chính sách đổi trả' },
+      { to: '/policy', label: 'Chính sách mua hàng' },
       { to: '/blog', label: 'Tra cứu nghi thức' },
       { to: '/blog', label: 'Câu hỏi thường gặp' },
       { to: '/contact', label: 'Liên hệ tư vấn' },
