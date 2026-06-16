@@ -17,9 +17,41 @@ type CheckoutRequest = {
     note?: string
   }
   items: CartItem[]
+  orderType?: string   // kept for backwards-compat; always treated as 'online'
   returnUrl: string
   cancelUrl: string
 }
+
+// ── Chính sách giá bán hàng online ────────────────────────────
+// Nguồn: PolicyPage.jsx — mục "Khách mua online"
+function getOnlineDiscount(itemCount: number): number {
+  if (itemCount >= 20) return 350_000
+  if (itemCount >= 5)  return 80_000
+  if (itemCount === 4) return 50_000
+  if (itemCount === 3) return 35_000
+  if (itemCount === 2) return 20_000
+  return 0
+}
+
+/**
+ * Tính giá đơn hàng online:
+ * - subtotal: tổng giá gốc
+ * - discount: giảm theo mốc số lượng sản phẩm
+ * - total: subtotal - discount
+ * - depositDue: số tiền cần thanh toán qua PayOS
+ *     · Tổng < 500.000đ  → 100%
+ *     · Tổng ≥ 500.000đ  → 80% (làm tròn lên, đơn vị đồng nguyên)
+ */
+function calculateOnlinePricing(items: CartItem[]) {
+  const itemCount = items.reduce((s, i) => s + Number(i.quantity || 1), 0)
+  const subtotal  = items.reduce((s, i) => s + parsePrice(i.price) * Number(i.quantity || 1), 0)
+  const discount  = Math.min(getOnlineDiscount(itemCount), subtotal)
+  const total     = Math.max(0, subtotal - discount)
+  const depositDue = total >= 500_000 ? Math.ceil(total * 0.8) : total
+  const remainingDue = Math.max(0, total - depositDue)
+  return { subtotal, discount, total, depositDue, remainingDue }
+}
+// ──────────────────────────────────────────────────────────────
 
 const encoder = new TextEncoder()
 
@@ -112,12 +144,15 @@ Deno.serve(async (req) => {
 
     const user = await getAuthedUser(req, supabaseUrl, anonKey)
     const adminClient = createClient(supabaseUrl, serviceRoleKey)
-    const amount = payload.items.reduce(
-      (total, item) => total + parsePrice(item.price) * Number(item.quantity || 1),
-      0,
-    )
 
-    if (!Number.isInteger(amount) || amount < 1000) {
+    // ── Tính giá theo chính sách online ──────────────────────
+    const pricing = calculateOnlinePricing(payload.items)
+    const { depositDue, discount, total, remainingDue } = pricing
+
+    // depositDue là số tiền thực tế gửi lên PayOS:
+    //   · tổng < 500.000đ  → 100% tổng sau giảm
+    //   · tổng ≥ 500.000đ  → 80% tổng sau giảm (làm tròn lên)
+    if (!Number.isInteger(depositDue) || depositDue < 1000) {
       return jsonResponse({ error: 'Payment amount must be at least 1,000 VND' }, 400)
     }
 
@@ -156,13 +191,13 @@ Deno.serve(async (req) => {
 
     const orderCode = Number(`${Date.now()}${Math.floor(Math.random() * 90 + 10)}`.slice(-12))
     const description = `VM${String(orderCode).slice(-7)}`
-    const orderSummary = buildOrderSummary(payload.items, payload.customer, amount)
+    const orderSummary = buildOrderSummary(payload.items, payload.customer, total)
     const { data: invoice, error: invoiceError } = await adminClient
       .from('Invoices')
       .insert({
         UserId: customerId,
         PruductName: orderSummary,
-        amount,
+        amount: total,           // tổng sau giảm giá (100%) — lưu để đối chiếu
         status: 'PENDING',
         payment_provider: 'payOS',
         payment_order_code: orderCode,
@@ -172,16 +207,29 @@ Deno.serve(async (req) => {
 
     if (invoiceError) throw invoiceError
 
-    const payosItems = payload.items.map((item) => ({
-      name: item.name.slice(0, 128),
-      quantity: Number(item.quantity || 1),
-      price: parsePrice(item.price),
-    }))
-    const signatureData = `amount=${amount}&cancelUrl=${payload.cancelUrl}&description=${description}&orderCode=${orderCode}&returnUrl=${payload.returnUrl}`
+    // PayOS yêu cầu tổng items === amount, nên scale giá mỗi item
+    // theo tỉ lệ depositDue / total để đảm bảo signature hợp lệ.
+    // Nếu depositDue === total (< 500k) thì scale = 1, không ảnh hưởng gì.
+    const scale = total > 0 ? depositDue / total : 1
+    const payosItems = payload.items.map((item, idx, arr) => {
+      const unitPrice = Math.round(parsePrice(item.price) * scale)
+      return {
+        name: item.name.slice(0, 128),
+        quantity: Number(item.quantity || 1),
+        price: unitPrice,
+      }
+    })
+    // Điều chỉnh item cuối để tổng = depositDue chính xác (tránh lỗi làm tròn)
+    const payosSum = payosItems.reduce((s, i) => s + i.price * i.quantity, 0)
+    if (payosItems.length > 0 && payosSum !== depositDue) {
+      payosItems[payosItems.length - 1].price += depositDue - payosSum
+    }
+
+    const signatureData = `amount=${depositDue}&cancelUrl=${payload.cancelUrl}&description=${description}&orderCode=${orderCode}&returnUrl=${payload.returnUrl}`
     const signature = await createSignature(signatureData, payosChecksumKey)
     const paymentBody = {
       orderCode,
-      amount,
+      amount: depositDue,
       description,
       buyerName: payload.customer.name,
       buyerEmail: user.email,

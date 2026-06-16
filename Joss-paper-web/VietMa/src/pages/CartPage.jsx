@@ -4,6 +4,7 @@ import AuthButton from '../components/AuthButton.jsx'
 import { useAuth } from '../hooks/useAuth.js'
 import { useCart } from '../hooks/useCart.js'
 import { isSupabaseConfigured, supabase } from '../lib/supabaseClient.js'
+import { calculateOrderPricing } from '../utils/orderPricing.js'
 
 function getDisplayName(user) {
   return (
@@ -108,9 +109,21 @@ function CartPage() {
   const [isHistoryLoading, setIsHistoryLoading] = useState(false)
   const [notice, setNotice] = useState(null)
 
+  const pricing = useMemo(
+    () =>
+      calculateOrderPricing({
+        itemCount: items.reduce((total, item) => total + item.quantity, 0),
+        subtotal,
+      }),
+    [items, subtotal],
+  )
   const formattedTotal = useMemo(
-    () => formatCurrency(subtotal),
-    [formatCurrency, subtotal],
+    () => formatCurrency(pricing.total),
+    [formatCurrency, pricing.total],
+  )
+  const formattedDeposit = useMemo(
+    () => formatCurrency(pricing.depositDue),
+    [formatCurrency, pricing.depositDue],
   )
 
   useEffect(() => {
@@ -236,6 +249,7 @@ function CartPage() {
           body: {
             customer: formValues,
             items,
+            orderType: 'online',
             returnUrl: `${window.location.origin}${window.location.pathname}?payment=success#/cart`,
             cancelUrl: `${window.location.origin}${window.location.pathname}?payment=cancel#/cart`,
           },
@@ -396,15 +410,57 @@ function CartPage() {
                 Ghi chú
                 <textarea
                   name="note"
-                  rows="4"
+                  rows="3"
                   value={formValues.note}
                   onChange={handleFieldChange}
                 />
               </label>
 
-              <div className="cart-total-row">
-                <span>Tổng tiền</span>
-                <strong>{formattedTotal}</strong>
+              <div className="cart-price-breakdown">
+                <div className="cart-total-row cart-total-row--sub">
+                  <span>Tạm tính</span>
+                  <span>{formatCurrency(pricing.subtotal)}</span>
+                </div>
+                {pricing.discount > 0 && (
+                  <div className="cart-total-row cart-total-row--discount">
+                    <span>Ưu đãi — {pricing.discountLabel}</span>
+                    <span>−{formatCurrency(pricing.discount)}</span>
+                  </div>
+                )}
+                {pricing.discount === 0 && (
+                  <div className="cart-total-row cart-total-row--note">
+                    <span>{pricing.discountLabel}</span>
+                  </div>
+                )}
+                <div className="cart-total-row cart-total-row--total">
+                  <span>Tổng đơn hàng</span>
+                  <strong>{formattedTotal}</strong>
+                </div>
+
+                {pricing.remainingDue > 0 ? (
+                  <div className="cart-payment-schedule">
+                    <p className="cart-payment-schedule-label">Lịch thanh toán</p>
+                    <div className="cart-payment-schedule-row cart-payment-schedule-row--now">
+                      <div>
+                        <span className="cart-payment-step">Bước 1 · Thanh toán qua payOS</span>
+                        <span className="cart-payment-hint">80% — trước khi giao hàng</span>
+                      </div>
+                      <strong>{formattedDeposit}</strong>
+                    </div>
+                    <div className="cart-payment-schedule-row cart-payment-schedule-row--later">
+                      <div>
+                        <span className="cart-payment-step">Bước 2 · Khi nhận hàng</span>
+                        <span className="cart-payment-hint">20% còn lại — trả khi nhận</span>
+                      </div>
+                      <span>{formatCurrency(pricing.remainingDue)}</span>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="cart-payment-full">
+                    <span>Thanh toán một lần</span>
+                    <strong>{formattedDeposit}</strong>
+                  </div>
+                )}
               </div>
 
               <p className="cart-policy-note">
@@ -417,7 +473,12 @@ function CartPage() {
                 className="contact-submit"
                 disabled={isSubmitting || items.length === 0}
               >
-                {isSubmitting ? 'Đang tạo link...' : 'Thanh toán qua payOS'}
+                {isSubmitting
+                  ? 'Đang tạo link...'
+                  : pricing.remainingDue > 0
+                    ? `Thanh toán trước ${formattedDeposit} qua payOS`
+                    : `Thanh toán ${formattedDeposit} qua payOS`
+                }
               </button>
 
               <CartNotice notice={notice} onDismiss={() => setNotice(null)} />

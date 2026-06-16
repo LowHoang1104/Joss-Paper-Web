@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import AuthButton from '../components/AuthButton.jsx'
 import Reveal from '../components/Reveal.jsx'
 import { products } from '../data/siteData.js'
+import { useAuth } from '../hooks/useAuth.js'
 import { useCart } from '../hooks/useCart.js'
 
 const productImages = import.meta.glob('../assets/product/*.{png,jpg,jpeg,webp,avif}', {
@@ -18,11 +20,37 @@ const resolveProductImage = (image) => {
 
 function ProductsPage() {
   const { addItem } = useCart()
-  const [addedProductName, setAddedProductName] = useState('')
+  const { isLoading: isAuthLoading, user } = useAuth()
+  const [notice, setNotice] = useState(null)
 
   const handleAddToCart = (product) => {
+    if (isAuthLoading) {
+      setNotice({
+        type: 'info',
+        title: 'Đang kiểm tra đăng nhập',
+        message: 'Vui lòng đợi trong giây lát rồi thử thêm sản phẩm lại.',
+        action: null,
+      })
+      return
+    }
+
+    if (!user) {
+      setNotice({
+        type: 'warning',
+        title: 'Bạn cần đăng nhập trước',
+        message: 'Đăng nhập Google để thêm sản phẩm vào giỏ hàng và lưu đơn mua của bạn.',
+        action: 'login',
+      })
+      return
+    }
+
     addItem(product)
-    setAddedProductName(product.name)
+    setNotice({
+      type: 'success',
+      title: 'Đã thêm vào giỏ hàng',
+      message: `${product.name} đã được thêm vào giỏ hàng của bạn.`,
+      action: null,
+    })
   }
 
   return (
@@ -49,10 +77,23 @@ function ProductsPage() {
             <h2 className="section-title">
               Bộ Sưu Tập <em>Tâm Thành</em>
             </h2>
-            {addedProductName ? (
-              <p className="cart-add-status">
-                Đã thêm {addedProductName} vào giỏ hàng.
-              </p>
+            {notice ? (
+              <div className={`cart-notice product-auth-notice cart-notice-${notice.type}`} role="alert">
+                <div className="cart-notice-mark" aria-hidden="true">
+                  {notice.type === 'success' ? '✓' : notice.type === 'warning' ? '!' : 'i'}
+                </div>
+                <div className="cart-notice-content">
+                  <span>{notice.type === 'success' ? 'Thành công' : notice.type === 'warning' ? 'Cần đăng nhập' : 'Thông tin'}</span>
+                  <strong>{notice.title}</strong>
+                  <p>{notice.message}</p>
+                  <div className="cart-notice-actions">
+                    {notice.action === 'login' ? <AuthButton /> : null}
+                    <button type="button" className="cart-notice-close" onClick={() => setNotice(null)}>
+                      Đóng
+                    </button>
+                  </div>
+                </div>
+              </div>
             ) : null}
           </Reveal>
 
