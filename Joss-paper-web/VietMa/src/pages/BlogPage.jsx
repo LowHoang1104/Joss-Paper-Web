@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal.jsx'
 import { blogPosts } from '../data/siteData.js'
 
@@ -13,7 +14,7 @@ function BlogPage() {
             Tâm Linh <em>Đời Sống</em>
           </h1>
           <p className="page-hero-copy">
-            
+            Góc nhìn về văn hoá thờ cúng, nếp nhà và nghi lễ truyền thống Việt
           </p>
         </div>
       </section>
@@ -29,10 +30,7 @@ function BlogPage() {
 
           <div className="blog-grid">
             <Reveal>
-              <article className="post-card featured">
-                <div className="post-img" style={{ background: featuredPost.imageStyle }}>
-                  <div className="post-img-label">{featuredPost.label}</div>
-                </div>
+              <Link to={`/blog/${featuredPost.id}`} className="post-card featured post-card--link post-card--noimg">
                 <div className="post-body">
                   <div className="post-meta">
                     <span className="cat">{featuredPost.category}</span>
@@ -41,17 +39,14 @@ function BlogPage() {
                   </div>
                   <h3 className="post-title">{featuredPost.title}</h3>
                   <p className="post-excerpt">{featuredPost.excerpt}</p>
-                  <span className="post-link">Bài nổi bật</span>
+                  <span className="post-link">Đọc bài viết →</span>
                 </div>
-              </article>
+              </Link>
             </Reveal>
 
             {otherPosts.map((post, index) => (
               <Reveal key={post.id} delay={index * 0.12}>
-                <article className="post-card">
-                  <div className="post-img" style={{ background: post.imageStyle }}>
-                    <div className="post-img-label">{post.label}</div>
-                  </div>
+                <Link to={`/blog/${post.id}`} className="post-card post-card--link post-card--noimg">
                   <div className="post-body">
                     <div className="post-meta">
                       <span className="cat">{post.category}</span>
@@ -60,9 +55,9 @@ function BlogPage() {
                     </div>
                     <h3 className="post-title">{post.title}</h3>
                     <p className="post-excerpt">{post.excerpt}</p>
-                    <span className="post-link">Đọc sau</span>
+                    <span className="post-link">Đọc thêm →</span>
                   </div>
-                </article>
+                </Link>
               </Reveal>
             ))}
           </div>

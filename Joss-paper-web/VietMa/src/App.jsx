@@ -8,6 +8,7 @@ import Layout from './components/Layout.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import BlogPage from './pages/BlogPage.jsx'
+import BlogPostPage from './pages/BlogPostPage.jsx'
 import CartPage from './pages/CartPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import HomePage from './pages/HomePage.jsx'
@@ -34,6 +35,10 @@ const router = createHashRouter([
       {
         path: 'blog',
         element: <BlogPage />,
+      },
+      {
+        path: 'blog/:id',
+        element: <BlogPostPage />,
       },
       {
         path: 'contact',
