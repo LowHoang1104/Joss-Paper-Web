@@ -1681,7 +1681,7 @@ button {
 }
 
 .story-block-list li::before {
-  content: 'ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â¹';
+  content: '✦';
   position: absolute;
   left: 0;
   top: 0;
@@ -3083,7 +3083,7 @@ button {
   object-fit: cover;
 }
 
-.chat-advisor-fab[aria-label='Ãƒâ€žÃ‚ÂÃƒÆ’Ã‚Â³ng tÃƒâ€ Ã‚Â° vÃƒÂ¡Ã‚ÂºÃ‚Â¥n viÃƒÆ’Ã‚Âªn ViÃƒÂ¡Ã‚Â»Ã¢â‚¬Â¡t MÃƒÆ’Ã‚Â£'] {
+.chat-advisor-fab[aria-label='Mở tư vấn viên Việt Mã'] {
   transform: scale(0.95);
 }
 
