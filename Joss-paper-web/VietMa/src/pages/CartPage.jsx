@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import AuthButton from '../components/AuthButton.jsx'
-import { useAuth } from '../hooks/useAuth.js'
+import { getAuthRedirectTo, useAuth } from '../hooks/useAuth.js'
 import { useCart } from '../hooks/useCart.js'
 import { isSupabaseConfigured, supabase } from '../lib/supabaseClient.js'
 import { calculateOrderPricing } from '../utils/orderPricing.js'
@@ -220,12 +220,21 @@ function CartPage() {
     event.preventDefault()
 
     if (!user) {
-      setNotice({
-        type: 'warning',
-        title: 'Bạn cần đăng nhập để thanh toán',
-        message: 'Đăng nhập bằng Google để hệ thống lưu đơn hàng và hiển thị lịch sử mua hàng của bạn.',
-        action: 'login',
-      })
+      if (isSupabaseConfigured) {
+        await supabase.auth.signInWithOAuth({
+          provider: 'google',
+          options: {
+            redirectTo: getAuthRedirectTo(),
+          },
+        })
+      } else {
+        setNotice({
+          type: 'warning',
+          title: 'Bạn cần đăng nhập để thanh toán',
+          message: 'Chưa cấu hình đăng nhập Supabase.',
+          action: null,
+        })
+      }
       return
     }
 

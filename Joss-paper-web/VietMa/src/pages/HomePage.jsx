@@ -195,9 +195,20 @@ function HomePage() {
                     <div className="card-price card-price-large">
                       {spotlightProduct.price} <span>{spotlightProduct.unit}</span>
                     </div>
-                    <Link to="/products" className="card-btn">
-                      Xem bộ sưu tập
-                    </Link>
+                    {spotlightProduct.isSoldOut ? (
+                      <button
+                        type="button"
+                        className="card-btn"
+                        disabled
+                        style={{ opacity: 0.5, cursor: 'not-allowed' }}
+                      >
+                        Hết hàng
+                      </button>
+                    ) : (
+                      <Link to="/products" className="card-btn">
+                        Xem bộ sưu tập
+                      </Link>
+                    )}
                   </div>
                 </div>
               </article>
@@ -231,9 +242,20 @@ function HomePage() {
                       <div className="card-price">
                         {product.price} <span>{product.unit}</span>
                       </div>
-                      <Link to="/products" className="card-btn">
-                        Xem thêm
-                      </Link>
+                      {product.isSoldOut ? (
+                        <button
+                          type="button"
+                          className="card-btn"
+                          disabled
+                          style={{ opacity: 0.5, cursor: 'not-allowed' }}
+                        >
+                          Hết hàng
+                        </button>
+                      ) : (
+                        <Link to="/products" className="card-btn">
+                          Xem thêm
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </article>

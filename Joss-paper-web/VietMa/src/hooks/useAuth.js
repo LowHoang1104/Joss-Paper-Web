@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import { isSupabaseConfigured, supabase } from '../lib/supabaseClient.js'
 
 export function getAuthRedirectTo() {
+  if (window.location.hash) {
+    sessionStorage.setItem('postLoginRedirect', window.location.hash)
+  }
   return `${window.location.origin}${window.location.pathname}`
 }
 
@@ -20,14 +23,30 @@ export function useAuth() {
       if (isMounted) {
         setSession(data.session)
         setIsLoading(false)
+
+        if (data.session) {
+          const redirect = sessionStorage.getItem('postLoginRedirect')
+          if (redirect) {
+            sessionStorage.removeItem('postLoginRedirect')
+            window.location.hash = redirect
+          }
+        }
       }
     })
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+    } = supabase.auth.onAuthStateChange((event, nextSession) => {
       setSession(nextSession)
       setIsLoading(false)
+
+      if (event === 'SIGNED_IN') {
+        const redirect = sessionStorage.getItem('postLoginRedirect')
+        if (redirect) {
+          sessionStorage.removeItem('postLoginRedirect')
+          window.location.hash = redirect
+        }
+      }
     })
 
     return () => {

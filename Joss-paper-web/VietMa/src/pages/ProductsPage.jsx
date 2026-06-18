@@ -2,8 +2,9 @@ import { useState } from 'react'
 import AuthButton from '../components/AuthButton.jsx'
 import Reveal from '../components/Reveal.jsx'
 import { products } from '../data/siteData.js'
-import { useAuth } from '../hooks/useAuth.js'
+import { getAuthRedirectTo, useAuth } from '../hooks/useAuth.js'
 import { useCart } from '../hooks/useCart.js'
+import { isSupabaseConfigured, supabase } from '../lib/supabaseClient.js'
 
 const productImages = import.meta.glob('../assets/product/*.{png,jpg,jpeg,webp,avif}', {
   eager: true,
@@ -35,12 +36,21 @@ function ProductsPage() {
     }
 
     if (!user) {
-      setNotice({
-        type: 'warning',
-        title: 'Bạn cần đăng nhập trước',
-        message: 'Đăng nhập Google để thêm sản phẩm vào giỏ hàng và lưu đơn mua của bạn.',
-        action: 'login',
-      })
+      if (isSupabaseConfigured) {
+        supabase.auth.signInWithOAuth({
+          provider: 'google',
+          options: {
+            redirectTo: getAuthRedirectTo(),
+          },
+        })
+      } else {
+        setNotice({
+          type: 'warning',
+          title: 'Bạn cần đăng nhập trước',
+          message: 'Chưa cấu hình đăng nhập. Vui lòng thử lại sau.',
+          action: null,
+        })
+      }
       return
     }
 
@@ -122,13 +132,24 @@ function ProductsPage() {
                       <div className="card-price">
                         {product.price} <span>{product.unit}</span>
                       </div>
-                      <button
-                        type="button"
-                        className="card-btn"
-                        onClick={() => handleAddToCart(product)}
-                      >
-                        Thêm vào giỏ
-                      </button>
+                      {product.isSoldOut ? (
+                        <button
+                          type="button"
+                          className="card-btn"
+                          disabled
+                          style={{ opacity: 0.5, cursor: 'not-allowed' }}
+                        >
+                          Hết hàng
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="card-btn"
+                          onClick={() => handleAddToCart(product)}
+                        >
+                          Thêm vào giỏ
+                        </button>
+                      )}
                     </div>
                   </div>
                 </article>
